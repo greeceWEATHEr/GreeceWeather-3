@@ -1938,38 +1938,56 @@ function showHourly(dayIndex){
         let precipitationHTML = "";
 
 
-        if(snowfall > 0){
+/* =====================================
+   ΥΕΤΟΣ ΩΡΙΑΙΑΣ ΠΡΟΓΝΩΣΗΣ
 
-            precipitationHTML = `
+   0–29%  → ΚΑΝΕΝΑΣ ΥΕΤΟΣ
+   30%+   → Εμφάνιση πραγματικού υετού
+===================================== */
 
-                ${rain >= 30 ? "❄️ " : ""}
-                Χιόνι:
-                <b>
-                    ${snowfall.toFixed(1)} cm
-                </b>
+if(rain >= 30){
 
-                <br>
+    if(snowfall > 0){
 
-                ${rain >= 30 ? "💧 " : ""}
-                ${rain}%
+        precipitationHTML = `
 
-            `;
+            ❄️ Χιόνι:
+            <b>
+                ${snowfall.toFixed(1)} cm
+            </b>
 
-        }else{
+            <br>
 
-            precipitationHTML = `
+            💧 ${rain}%
 
-                ${rain >= 30 ? "💧 " : ""}
-                ${rain}%
+        `;
 
-                <br>
+    }else{
 
+        precipitationHTML = `
+
+            🌧️ Βροχή:
+            <b>
                 ${precipitation} mm
+            </b>
 
-            `;
+            <br>
 
-        }
+            💧 ${rain}%
 
+        `;
+
+    }
+
+}else{
+
+    precipitationHTML = `
+
+        💧 ${rain}%
+
+    `;
+
+}
 
 
         html += `
