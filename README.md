@@ -7,21 +7,31 @@
 <title>Greece Weather</title>
 
 <style>
+
 *{
     box-sizing:border-box;
 }
 
 body{
     margin:0;
-    font-family:Arial,Helvetica,sans-serif;
-    background:linear-gradient(180deg,#071a35,#0b2b52 55%,#071a35);
-    color:white;
     min-height:100vh;
+    font-family:Arial,Helvetica,sans-serif;
+    color:white;
+    background:linear-gradient(
+        180deg,
+        #06172f 0%,
+        #0b2c52 55%,
+        #06172f 100%
+    );
 }
+
+/* =========================
+   HEADER
+========================= */
 
 header{
     text-align:center;
-    padding:25px 15px 15px;
+    padding:25px 15px 12px;
 }
 
 .logo{
@@ -31,15 +41,18 @@ header{
 
 .subtitle{
     color:#a9c9eb;
-    margin-top:6px;
+    margin-top:7px;
+    font-size:15px;
 }
 
-/* SEARCH */
+/* =========================
+   SEARCH
+========================= */
 
 .search-area{
     width:94%;
     max-width:850px;
-    margin:15px auto;
+    margin:18px auto;
     position:relative;
 }
 
@@ -50,24 +63,25 @@ header{
 
 .search-box input{
     flex:1;
+    min-width:0;
     padding:15px 17px;
     border:none;
-    border-radius:14px;
-    font-size:17px;
     outline:none;
-    background:#ffffff;
-    color:#12233a;
+    border-radius:14px;
+    font-size:16px;
+    background:white;
+    color:#14263d;
 }
 
 .search-box button{
     border:none;
     border-radius:14px;
     padding:0 22px;
+    background:#399cff;
+    color:white;
     font-size:16px;
     font-weight:bold;
     cursor:pointer;
-    background:#3b9cff;
-    color:white;
 }
 
 .search-box button:active{
@@ -76,14 +90,14 @@ header{
 
 .results{
     position:absolute;
-    top:62px;
     left:0;
     right:0;
-    z-index:20;
+    top:62px;
+    z-index:100;
     background:#102b4c;
     border-radius:12px;
     overflow:hidden;
-    box-shadow:0 8px 25px rgba(0,0,0,.35);
+    box-shadow:0 10px 30px rgba(0,0,0,.4);
 }
 
 .result{
@@ -101,12 +115,29 @@ header{
 }
 
 .result-country{
-    font-size:13px;
+    margin-top:4px;
     color:#a9c9eb;
-    margin-top:3px;
+    font-size:13px;
 }
 
-/* LOCATION */
+/* =========================
+   ERROR
+========================= */
+
+.error{
+    display:none;
+    width:94%;
+    max-width:800px;
+    margin:18px auto;
+    padding:15px;
+    border-radius:13px;
+    background:#702832;
+    text-align:center;
+}
+
+/* =========================
+   LOCATION
+========================= */
 
 .location{
     text-align:center;
@@ -115,36 +146,38 @@ header{
 
 .location h1{
     margin:0;
-    font-size:30px;
+    font-size:31px;
 }
 
 .country{
-    margin-top:5px;
+    margin-top:6px;
     color:#a9c9eb;
     font-size:17px;
 }
 
-/* CURRENT */
+/* =========================
+   CURRENT WEATHER
+========================= */
 
 .current{
     width:94%;
     max-width:900px;
     margin:20px auto;
-    padding:22px;
+    padding:24px;
     border-radius:22px;
-    background:rgba(255,255,255,.08);
-    backdrop-filter:blur(10px);
     text-align:center;
+    background:rgba(255,255,255,.08);
+    border:1px solid rgba(255,255,255,.06);
 }
 
 .current-temp{
-    font-size:58px;
+    font-size:60px;
     font-weight:bold;
 }
 
 .current-condition{
     font-size:21px;
-    margin-top:3px;
+    margin-top:4px;
 }
 
 .current-details{
@@ -156,7 +189,14 @@ header{
     color:#c8ddf4;
 }
 
-/* FORECAST */
+.loading{
+    padding:25px;
+    color:#a9c9eb;
+}
+
+/* =========================
+   FORECAST TITLE
+========================= */
 
 .forecast-title{
     width:94%;
@@ -166,53 +206,84 @@ header{
     font-weight:bold;
 }
 
+/* =========================
+   15 DAY GRID
+   6 + 6 + 3
+========================= */
+
 .forecast{
     width:94%;
     max-width:1100px;
     margin:auto;
+
     display:grid;
-    grid-template-columns:repeat(4,1fr);
+
+    grid-template-columns:repeat(6,1fr);
+
     gap:12px;
 }
 
+/* =========================
+   DAY CARD
+========================= */
+
 .day{
-    background:rgba(255,255,255,.08);
-    border:1px solid rgba(255,255,255,.07);
-    border-radius:17px;
-    padding:16px 10px;
+    min-width:0;
+    padding:15px 8px;
+
     text-align:center;
+
+    border-radius:17px;
+
+    background:rgba(255,255,255,.08);
+
+    border:1px solid rgba(255,255,255,.07);
+
     cursor:pointer;
-    transition:.2s;
+
+    transition:
+        transform .2s,
+        background .2s,
+        border .2s;
 }
 
 .day:hover{
-    background:rgba(255,255,255,.14);
     transform:translateY(-2px);
+    background:rgba(255,255,255,.14);
 }
 
 .day.selected{
-    border:2px solid #53aaff;
+    border:2px solid #55aaff;
     background:rgba(55,150,255,.16);
 }
 
 .day-name{
     font-weight:bold;
-    font-size:16px;
+    font-size:15px;
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
 }
 
 .day-date{
     color:#9ebddd;
-    font-size:13px;
-    margin-top:4px;
+    font-size:12px;
+    margin-top:5px;
 }
 
 .icon{
-    font-size:42px;
-    margin:12px 0;
+    font-size:35px;
+    min-height:48px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    margin:10px 0;
 }
 
 .temps{
-    font-size:19px;
+    font-size:18px;
 }
 
 .max{
@@ -221,48 +292,62 @@ header{
 
 .min{
     color:#a9c9eb;
-    margin-left:7px;
+    margin-left:5px;
 }
 
 .precip{
     margin-top:9px;
-    color:#b9dbfa;
-    font-size:14px;
+    color:#c4ddf4;
+    font-size:13px;
 }
 
 .wind{
     margin-top:7px;
-    font-size:14px;
-    color:#c8ddf4;
+    color:#c4ddf4;
+    font-size:13px;
 }
 
-/* DETAILS */
+/* =========================
+   SELECTED DAY DETAILS
+========================= */
 
 .details{
+    display:none;
+
     width:94%;
     max-width:1100px;
+
     margin:25px auto 40px;
-    background:rgba(255,255,255,.08);
-    border-radius:20px;
+
     padding:20px;
-    display:none;
+
+    border-radius:20px;
+
+    background:rgba(255,255,255,.08);
 }
 
 .details h2{
     margin-top:0;
+    text-transform:capitalize;
 }
 
 .hourly{
     display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(105px,1fr));
+
+    grid-template-columns:
+        repeat(auto-fit,minmax(105px,1fr));
+
     gap:9px;
 }
 
 .hour{
-    background:rgba(0,0,0,.16);
-    border-radius:13px;
     padding:12px 6px;
+
     text-align:center;
+
+    border-radius:13px;
+
+    background:rgba(0,0,0,.16);
 }
 
 .hour-time{
@@ -271,7 +356,14 @@ header{
 }
 
 .hour-icon{
-    font-size:28px;
+    min-height:35px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    font-size:27px;
+
     margin:7px 0;
 }
 
@@ -281,37 +373,29 @@ header{
 }
 
 .hour-wind{
-    margin-top:5px;
-    font-size:13px;
+    margin-top:6px;
     color:#c4d9ef;
+    font-size:12px;
 }
 
-.error{
-    width:94%;
-    max-width:800px;
-    margin:20px auto;
-    background:#6d2630;
-    padding:15px;
-    border-radius:12px;
-    text-align:center;
-    display:none;
-}
+/* =========================
+   TABLET
+========================= */
 
-.loading{
-    text-align:center;
-    padding:25px;
-    color:#a9c9eb;
-}
+@media(max-width:900px){
 
-/* 4 / 4 / 4 / 3 */
-
-@media(max-width:800px){
     .forecast{
-        grid-template-columns:repeat(2,1fr);
+        grid-template-columns:repeat(3,1fr);
     }
+
 }
 
-@media(max-width:480px){
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:600px){
+
     .forecast{
         grid-template-columns:repeat(2,1fr);
         gap:8px;
@@ -321,138 +405,152 @@ header{
         padding:13px 6px;
     }
 
-    .icon{
-        font-size:35px;
-    }
-
     .current-temp{
-        font-size:48px;
+        font-size:50px;
     }
 
     .search-box button{
         padding:0 15px;
     }
+
 }
+
+/* =========================
+   VERY SMALL MOBILE
+========================= */
+
+@media(max-width:380px){
+
+    .logo{
+        font-size:25px;
+    }
+
+    .forecast{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .icon{
+        font-size:30px;
+    }
+
+}
+
 </style>
 </head>
 
 <body>
 
+
 <header>
-    <div class="logo">🌦️ Greece Weather</div>
-    <div class="subtitle">
-        15ήμερη πρόγνωση με πολλαπλά προγνωστικά μοντέλα
+
+    <div class="logo">
+        🌦️ Greece Weather
     </div>
+
+    <div class="subtitle">
+        15ήμερη πρόγνωση με ECMWF + GFS
+    </div>
+
 </header>
+
+
+<!-- =========================
+     SEARCH
+========================= -->
 
 <div class="search-area">
 
     <div class="search-box">
+
         <input
             id="searchInput"
             type="text"
-            placeholder="Αναζήτησε περιοχή σε όλο τον κόσμο..."
+            placeholder="Αναζήτησε οποιαδήποτε περιοχή στον κόσμο..."
             autocomplete="off"
         >
 
-        <button onclick="searchLocation()">Αναζήτηση</button>
+        <button onclick="searchLocation()">
+            Αναζήτηση
+        </button>
+
     </div>
 
     <div id="results" class="results"></div>
 
 </div>
 
+
 <div id="error" class="error"></div>
 
-<div id="location" class="location">
-    <h1 id="placeName">Θεσσαλονίκη</h1>
-    <div id="countryName" class="country">Ελλάδα</div>
+
+<!-- =========================
+     LOCATION
+========================= -->
+
+<div class="location">
+
+    <h1 id="placeName">
+        Θεσσαλονίκη
+    </h1>
+
+    <div id="countryName" class="country">
+        Ελλάδα
+    </div>
+
 </div>
 
+
+<!-- =========================
+     CURRENT WEATHER
+========================= -->
+
 <div id="current" class="current">
-    <div class="loading">Φόρτωση δεδομένων...</div>
+
+    <div class="loading">
+        Φόρτωση δεδομένων...
+    </div>
+
 </div>
+
+
+<!-- =========================
+     15 DAY FORECAST
+========================= -->
 
 <div class="forecast-title">
     15ήμερη πρόγνωση
 </div>
 
-<div id="forecast" class="forecast">
-</div>
+<div id="forecast" class="forecast"></div>
 
-<div id="details" class="details">
-</div>
+
+<!-- =========================
+     SELECTED DAY
+========================= -->
+
+<div id="details" class="details"></div>
+
 
 <script>
 
 /* =========================================================
-   ΡΥΘΜΙΣΕΙΣ
+   ΑΡΧΙΚΗ ΠΕΡΙΟΧΗ
 ========================================================= */
 
 let currentLocation = {
+
     name:"Θεσσαλονίκη",
+
     country:"Ελλάδα",
+
     latitude:40.6401,
+
     longitude:22.9444
+
 };
 
+
 let forecastData = null;
-
-
-/* =========================================================
-   DEFAULT CITIES
-========================================================= */
-
-const greekCities = [
-    {
-        name:"Αθήνα",
-        country:"Ελλάδα",
-        latitude:37.9838,
-        longitude:23.7275
-    },
-    {
-        name:"Θεσσαλονίκη",
-        country:"Ελλάδα",
-        latitude:40.6401,
-        longitude:22.9444
-    },
-    {
-        name:"Πάτρα",
-        country:"Ελλάδα",
-        latitude:38.2466,
-        longitude:21.7346
-    },
-    {
-        name:"Ηράκλειο",
-        country:"Ελλάδα",
-        latitude:35.3387,
-        longitude:25.1442
-    },
-    {
-        name:"Λάρισα",
-        country:"Ελλάδα",
-        latitude:39.6390,
-        longitude:22.4191
-    },
-    {
-        name:"Βόλος",
-        country:"Ελλάδα",
-        latitude:39.3610,
-        longitude:22.9425
-    },
-    {
-        name:"Ιωάννινα",
-        country:"Ελλάδα",
-        latitude:39.6650,
-        longitude:20.8537
-    },
-    {
-        name:"Καβάλα",
-        country:"Ελλάδα",
-        latitude:40.9396,
-        longitude:24.4018
-    }
-];
 
 
 /* =========================================================
@@ -461,58 +559,142 @@ const greekCities = [
 
 function weatherIcon(code,isDay=true){
 
+    /* =========================
+       ΗΜΕΡΑ
+    ========================= */
+
+    if(isDay){
+
+        if(code === 0)
+            return "☀️";
+
+        if(code === 1)
+            return "🌤️";
+
+        if(code === 2)
+            return "⛅";
+
+        if(code === 3)
+            return "☁️";
+
+        if(code === 45 || code === 48)
+            return "🌫️";
+
+        if(code >= 51 && code <= 57)
+            return "🌦️";
+
+        if(code >= 61 && code <= 67)
+            return "🌧️";
+
+        if(code >= 71 && code <= 77)
+            return "🌨️";
+
+        if(code >= 80 && code <= 82)
+            return "🌦️";
+
+        if(code >= 85 && code <= 86)
+            return "🌨️";
+
+        if(code >= 95)
+            return "⛈️";
+
+        return "☀️";
+    }
+
+
+    /* =========================
+       ΝΥΧΤΑ
+    ========================= */
+
+    /* Σκέτο φεγγάρι */
     if(code === 0)
-        return isDay ? "☀️" : "🌙";
+        return "🌙";
 
+    /* Φεγγάρι με λίγα σύννεφα */
     if(code === 1)
-        return isDay ? "🌤️" : "🌙";
+        return "🌙☁️";
 
+    /* Φεγγάρι με πολλά σύννεφα */
     if(code === 2)
-        return isDay ? "⛅" : "☁️🌙";
+        return "🌙☁️☁️";
 
+    /* Μόνο πλήρης συννεφιά */
     if(code === 3)
         return "☁️";
 
+    /* Ομίχλη */
     if(code === 45 || code === 48)
         return "🌫️";
 
+    /* Φεγγάρι + σύννεφα + βροχή */
     if(code >= 51 && code <= 57)
-        return "🌦️";
+        return "🌙☁️🌧️";
 
     if(code >= 61 && code <= 67)
-        return "🌧️";
+        return "🌙☁️🌧️";
 
+    /* Φεγγάρι + σύννεφα + χιόνι */
     if(code >= 71 && code <= 77)
-        return "🌨️";
+        return "🌙☁️❄️";
 
+    /* Φεγγάρι + σύννεφα + βροχή */
     if(code >= 80 && code <= 82)
-        return "🌦️";
+        return "🌙☁️🌧️";
 
+    /* Φεγγάρι + σύννεφα + χιόνι */
     if(code >= 85 && code <= 86)
-        return "🌨️";
+        return "🌙☁️❄️";
 
+    /* Καταιγίδα */
     if(code >= 95)
-        return "⛈️";
+        return "🌙☁️🌧️";
 
-    return "🌤️";
+    return "🌙";
+
 }
 
 
+/* =========================================================
+   WEATHER TEXT
+========================================================= */
+
 function weatherText(code){
 
-    if(code===0) return "Αίθριος";
-    if(code===1) return "Κυρίως αίθριος";
-    if(code===2) return "Λίγες νεφώσεις";
-    if(code===3) return "Συννεφιά";
-    if(code===45 || code===48) return "Ομίχλη";
-    if(code>=51 && code<=57) return "Ψιλόβροχο";
-    if(code>=61 && code<=67) return "Βροχή";
-    if(code>=71 && code<=77) return "Χιονόπτωση";
-    if(code>=80 && code<=82) return "Μπόρες";
-    if(code>=85 && code<=86) return "Χιονομπόρες";
-    if(code>=95) return "Καταιγίδα";
+    if(code === 0)
+        return "Αίθριος";
+
+    if(code === 1)
+        return "Κυρίως αίθριος";
+
+    if(code === 2)
+        return "Λίγες νεφώσεις";
+
+    if(code === 3)
+        return "Πλήρης συννεφιά";
+
+    if(code === 45 || code === 48)
+        return "Ομίχλη";
+
+    if(code >= 51 && code <= 57)
+        return "Ψιλόβροχο";
+
+    if(code >= 61 && code <= 67)
+        return "Βροχή";
+
+    if(code >= 71 && code <= 77)
+        return "Χιόνι";
+
+    if(code >= 80 && code <= 82)
+        return "Μπόρες";
+
+    if(code >= 85 && code <= 86)
+        return "Χιονομπόρες";
+
+    if(code >= 95)
+        return "Καταιγίδα";
 
     return "Άγνωστο";
+
 }
 
 
@@ -522,7 +704,11 @@ function weatherText(code){
 
 function windDirection(degrees){
 
+    if(degrees == null)
+        return "";
+
     const directions = [
+
         "Β",
         "ΒΑ",
         "Α",
@@ -531,96 +717,155 @@ function windDirection(degrees){
         "ΝΔ",
         "Δ",
         "ΒΔ"
+
     ];
 
     return directions[
         Math.round(degrees / 45) % 8
     ];
+
 }
 
 
 /* =========================================================
-   SEARCH WORLDWIDE
+   SEARCH
 ========================================================= */
 
 async function searchLocation(){
 
     const input =
-        document.getElementById("searchInput").value.trim();
+        document
+        .getElementById("searchInput")
+        .value
+        .trim();
 
-    if(!input) return;
+
+    if(!input)
+        return;
+
 
     const results =
         document.getElementById("results");
 
+
+    hideError();
+
+
     results.innerHTML =
-        '<div class="result">Αναζήτηση...</div>';
+        '<div class="result">🔎 Αναζήτηση...</div>';
+
 
     try{
 
         const url =
             "https://geocoding-api.open-meteo.com/v1/search" +
-            "?name=" + encodeURIComponent(input) +
+
+            "?name=" +
+            encodeURIComponent(input) +
+
             "&count=8" +
+
             "&language=el" +
+
             "&format=json";
 
-        const response = await fetch(url);
+
+        const response =
+            await fetch(url);
+
 
         if(!response.ok)
             throw new Error();
 
-        const data = await response.json();
+
+        const data =
+            await response.json();
+
 
         results.innerHTML = "";
 
-        if(!data.results || data.results.length === 0){
+
+        if(
+            !data.results ||
+            data.results.length === 0
+        ){
 
             showError(
-                "Δεν βρέθηκε περιοχή με αυτό το όνομα."
+                "Δεν βρέθηκε πραγματική περιοχή με αυτό το όνομα."
             );
 
             return;
+
         }
+
 
         data.results.forEach(place => {
 
-            const div = document.createElement("div");
+            const div =
+                document.createElement("div");
+
 
             div.className = "result";
 
+
             div.innerHTML = `
+
                 <div class="result-name">
                     ${escapeHTML(place.name)}
                 </div>
 
                 <div class="result-country">
-                    ${escapeHTML(place.country || "")}
-                    ${place.admin1 ? " • " + escapeHTML(place.admin1) : ""}
+
+                    ${escapeHTML(
+                        place.country || ""
+                    )}
+
+                    ${
+                        place.admin1
+                        ?
+                        " • " +
+                        escapeHTML(place.admin1)
+                        :
+                        ""
+                    }
+
                 </div>
+
             `;
+
 
             div.onclick = () => {
 
                 results.innerHTML = "";
 
+
                 loadWeather({
+
                     name:place.name,
-                    country:place.country || "",
-                    latitude:place.latitude,
-                    longitude:place.longitude
+
+                    country:
+                        place.country || "",
+
+                    latitude:
+                        place.latitude,
+
+                    longitude:
+                        place.longitude
+
                 });
 
             };
+
 
             results.appendChild(div);
 
         });
 
+
     }catch(error){
 
         showError(
-            "Δεν ήταν δυνατή η αναζήτηση. Έλεγξε τη σύνδεσή σου."
+            "Η αναζήτηση απέτυχε. Έλεγξε τη σύνδεσή σου."
         );
 
     }
@@ -636,53 +881,87 @@ async function loadWeather(location){
 
     hideError();
 
-    currentLocation = location;
 
-    document.getElementById("placeName").textContent =
+    currentLocation =
+        location;
+
+
+    document
+        .getElementById("placeName")
+        .textContent =
         location.name;
 
-    document.getElementById("countryName").textContent =
+
+    document
+        .getElementById("countryName")
+        .textContent =
         location.country;
 
-    document.getElementById("current").innerHTML =
-        '<div class="loading">Φόρτωση πραγματικών δεδομένων...</div>';
 
-    document.getElementById("forecast").innerHTML =
-        '<div class="loading">Φόρτωση 15ήμερου...</div>';
+    document
+        .getElementById("current")
+        .innerHTML =
+        '<div class="loading">🌐 Φόρτωση πραγματικών δεδομένων...</div>';
 
-    document.getElementById("details").style.display = "none";
+
+    document
+        .getElementById("forecast")
+        .innerHTML =
+        '<div class="loading">📅 Φόρτωση 15ήμερου...</div>';
+
+
+    document
+        .getElementById("details")
+        .style.display =
+        "none";
+
 
     try{
 
-        /*
-        -------------------------------------------------------
-        ECMWF IFS
-        -------------------------------------------------------
-        */
+        /* =========================
+           ECMWF
+        ========================= */
 
         const ecmwfURL =
+
             "https://api.open-meteo.com/v1/forecast" +
 
-            "?latitude=" + location.latitude +
+            "?latitude=" +
+            location.latitude +
 
-            "&longitude=" + location.longitude +
+            "&longitude=" +
+            location.longitude +
 
             "&hourly=" +
+
             "temperature_2m," +
+
             "precipitation_probability," +
+
             "precipitation," +
+
             "weather_code," +
+
             "wind_speed_10m," +
+
             "wind_direction_10m," +
+
             "is_day" +
 
             "&daily=" +
+
             "weather_code," +
+
             "temperature_2m_max," +
+
             "temperature_2m_min," +
+
             "precipitation_probability_max," +
+
             "precipitation_sum," +
+
             "wind_speed_10m_max," +
+
             "wind_direction_10m_dominant" +
 
             "&forecast_days=15" +
@@ -692,35 +971,50 @@ async function loadWeather(location){
             "&models=ecmwf_ifs025";
 
 
-        /*
-        -------------------------------------------------------
-        NOAA GFS
-        -------------------------------------------------------
-        */
+        /* =========================
+           GFS
+        ========================= */
 
         const gfsURL =
+
             "https://api.open-meteo.com/v1/gfs" +
 
-            "?latitude=" + location.latitude +
+            "?latitude=" +
+            location.latitude +
 
-            "&longitude=" + location.longitude +
+            "&longitude=" +
+            location.longitude +
 
             "&hourly=" +
+
             "temperature_2m," +
+
             "precipitation_probability," +
+
             "precipitation," +
+
             "weather_code," +
+
             "wind_speed_10m," +
+
             "wind_direction_10m," +
+
             "is_day" +
 
             "&daily=" +
+
             "weather_code," +
+
             "temperature_2m_max," +
+
             "temperature_2m_min," +
+
             "precipitation_probability_max," +
+
             "precipitation_sum," +
+
             "wind_speed_10m_max," +
+
             "wind_direction_10m_dominant" +
 
             "&forecast_days=15" +
@@ -728,47 +1022,93 @@ async function loadWeather(location){
             "&timezone=auto";
 
 
-        const [ecmwfResponse,gfsResponse] =
+        const responses =
             await Promise.all([
+
                 fetch(ecmwfURL),
+
                 fetch(gfsURL)
+
             ]);
 
 
-        if(!ecmwfResponse.ok || !gfsResponse.ok)
+        if(
+            !responses[0].ok ||
+            !responses[1].ok
+        ){
+
             throw new Error();
+
+        }
 
 
         const ecmwf =
-            await ecmwfResponse.json();
+            await responses[0].json();
+
 
         const gfs =
-            await gfsResponse.json();
+            await responses[1].json();
 
 
-        forecastData = combineModels(
-            ecmwf,
-            gfs
+        forecastData =
+            combineModels(
+                ecmwf,
+                gfs
+            );
+
+
+        renderCurrent(
+            forecastData
         );
 
 
-        renderCurrent(forecastData);
-
-        renderForecast(forecastData);
+        renderForecast(
+            forecastData
+        );
 
 
     }catch(error){
 
         console.error(error);
 
+
+        document
+            .getElementById("current")
+            .innerHTML =
+            '<div class="loading">❌ Δεν ήταν δυνατή η φόρτωση των δεδομένων.</div>';
+
+
         showError(
             "Δεν ήταν δυνατή η φόρτωση των καιρικών δεδομένων."
         );
 
-        document.getElementById("current").innerHTML =
-            '<div class="loading">Σφάλμα φόρτωσης δεδομένων.</div>';
-
     }
+
+}
+
+
+/* =========================================================
+   AVERAGE
+========================================================= */
+
+function average(a,b){
+
+    if(
+        a == null &&
+        b == null
+    )
+        return null;
+
+
+    if(a == null)
+        return b;
+
+
+    if(b == null)
+        return a;
+
+
+    return (a+b)/2;
 
 }
 
@@ -777,160 +1117,258 @@ async function loadWeather(location){
    COMBINE ECMWF + GFS
 ========================================================= */
 
-function average(a,b){
-
-    if(a == null && b == null)
-        return null;
-
-    if(a == null)
-        return b;
-
-    if(b == null)
-        return a;
-
-    return (a+b)/2;
-}
-
-
 function combineModels(ecmwf,gfs){
 
     const daily = [];
 
+
     const days =
         Math.min(
+
             ecmwf.daily.time.length,
+
             gfs.daily.time.length,
+
             15
+
         );
 
 
-    for(let i=0;i<days;i++){
-
-        /*
-        Μέσος όρος ECMWF + GFS.
-        */
+    for(
+        let i=0;
+        i<days;
+        i++
+    ){
 
         const max =
             average(
-                ecmwf.daily.temperature_2m_max[i],
-                gfs.daily.temperature_2m_max[i]
+
+                ecmwf
+                .daily
+                .temperature_2m_max[i],
+
+                gfs
+                .daily
+                .temperature_2m_max[i]
+
             );
+
 
         const min =
             average(
-                ecmwf.daily.temperature_2m_min[i],
-                gfs.daily.temperature_2m_min[i]
+
+                ecmwf
+                .daily
+                .temperature_2m_min[i],
+
+                gfs
+                .daily
+                .temperature_2m_min[i]
+
             );
+
 
         const precip =
             Math.round(
+
                 average(
-                    ecmwf.daily.precipitation_probability_max[i],
-                    gfs.daily.precipitation_probability_max[i]
+
+                    ecmwf
+                    .daily
+                    .precipitation_probability_max[i],
+
+                    gfs
+                    .daily
+                    .precipitation_probability_max[i]
+
                 )
+
             );
 
 
-        /*
-        Χρησιμοποιούμε τον κωδικό του ECMWF
-        όταν υπάρχει.
-        */
-
         const code =
-            ecmwf.daily.weather_code[i] ??
-            gfs.daily.weather_code[i];
+            ecmwf
+            .daily
+            .weather_code[i]
+            ??
+            gfs
+            .daily
+            .weather_code[i];
 
 
         const wind =
             average(
-                ecmwf.daily.wind_speed_10m_max[i],
-                gfs.daily.wind_speed_10m_max[i]
+
+                ecmwf
+                .daily
+                .wind_speed_10m_max[i],
+
+                gfs
+                .daily
+                .wind_speed_10m_max[i]
+
             );
 
 
         const windDir =
-            ecmwf.daily.wind_direction_10m_dominant[i] ??
-            gfs.daily.wind_direction_10m_dominant[i];
+            ecmwf
+            .daily
+            .wind_direction_10m_dominant[i]
+            ??
+            gfs
+            .daily
+            .wind_direction_10m_dominant[i];
 
 
         daily.push({
 
-            date:ecmwf.daily.time[i],
+            date:
+                ecmwf
+                .daily
+                .time[i],
 
-            max:Math.round(max),
+            max:
+                Math.round(max),
 
-            min:Math.round(min),
+            min:
+                Math.round(min),
 
-            precip:precip,
+            precip:
+                precip,
 
-            code:code,
+            code:
+                code,
 
-            wind:Math.round(wind),
+            wind:
+                Math.round(wind),
 
-            windDir:windDirection(windDir)
+            windDir:
+                windDirection(windDir)
 
         });
 
     }
 
 
-    /*
-    Ωριαία δεδομένα.
-    */
+    /* =========================
+       HOURLY
+    ========================= */
 
     const hourly = [];
 
+
     const hours =
         Math.min(
+
             ecmwf.hourly.time.length,
+
             gfs.hourly.time.length
+
         );
 
 
-    for(let i=0;i<hours;i++){
+    for(
+        let i=0;
+        i<hours;
+        i++
+    ){
 
         hourly.push({
 
-            time:ecmwf.hourly.time[i],
+            time:
+                ecmwf
+                .hourly
+                .time[i],
+
 
             temp:
                 average(
-                    ecmwf.hourly.temperature_2m[i],
-                    gfs.hourly.temperature_2m[i]
+
+                    ecmwf
+                    .hourly
+                    .temperature_2m[i],
+
+                    gfs
+                    .hourly
+                    .temperature_2m[i]
+
                 ),
+
 
             precip:
                 Math.round(
+
                     average(
-                        ecmwf.hourly.precipitation_probability[i],
-                        gfs.hourly.precipitation_probability[i]
+
+                        ecmwf
+                        .hourly
+                        .precipitation_probability[i],
+
+                        gfs
+                        .hourly
+                        .precipitation_probability[i]
+
                     )
+
                 ),
+
 
             rain:
                 average(
-                    ecmwf.hourly.precipitation[i],
-                    gfs.hourly.precipitation[i]
+
+                    ecmwf
+                    .hourly
+                    .precipitation[i],
+
+                    gfs
+                    .hourly
+                    .precipitation[i]
+
                 ),
 
+
             code:
-                ecmwf.hourly.weather_code[i] ??
-                gfs.hourly.weather_code[i],
+                ecmwf
+                .hourly
+                .weather_code[i]
+                ??
+                gfs
+                .hourly
+                .weather_code[i],
+
 
             wind:
                 average(
-                    ecmwf.hourly.wind_speed_10m[i],
-                    gfs.hourly.wind_speed_10m[i]
+
+                    ecmwf
+                    .hourly
+                    .wind_speed_10m[i],
+
+                    gfs
+                    .hourly
+                    .wind_speed_10m[i]
+
                 ),
+
 
             windDir:
                 windDirection(
-                    ecmwf.hourly.wind_direction_10m[i] ??
-                    gfs.hourly.wind_direction_10m[i]
+
+                    ecmwf
+                    .hourly
+                    .wind_direction_10m[i]
+                    ??
+                    gfs
+                    .hourly
+                    .wind_direction_10m[i]
+
                 ),
 
+
             isDay:
-                ecmwf.hourly.is_day[i]
+                ecmwf
+                .hourly
+                .is_day[i]
 
         });
 
@@ -938,8 +1376,11 @@ function combineModels(ecmwf,gfs){
 
 
     return {
+
         daily:daily,
+
         hourly:hourly
+
     };
 
 }
@@ -954,8 +1395,10 @@ function renderCurrent(data){
     const now =
         new Date();
 
+
     let nearest =
         data.hourly[0];
+
 
     let bestDiff =
         Infinity;
@@ -965,14 +1408,21 @@ function renderCurrent(data){
 
         const diff =
             Math.abs(
-                new Date(hour.time) - now
+
+                new Date(hour.time)
+                -
+                now
+
             );
+
 
         if(diff < bestDiff){
 
-            bestDiff = diff;
+            bestDiff =
+                diff;
 
-            nearest = hour;
+            nearest =
+                hour;
 
         }
 
@@ -981,16 +1431,23 @@ function renderCurrent(data){
 
     const icon =
         weatherIcon(
+
             nearest.code,
+
             nearest.isDay
+
         );
 
 
     const text =
-        weatherText(nearest.code);
+        weatherText(
+            nearest.code
+        );
 
 
-    document.getElementById("current").innerHTML = `
+    document
+        .getElementById("current")
+        .innerHTML = `
 
         <div class="current-temp">
             ${Math.round(nearest.temp)}°
@@ -1003,17 +1460,19 @@ function renderCurrent(data){
         <div class="current-details">
 
             <span>
-                🌧️ Υετός:
+                💧 Υετός:
                 ${nearest.precip}%
             </span>
 
             <span>
                 💨 Άνεμος:
-                ${Math.round(nearest.wind)} km/h
+                ${Math.round(nearest.wind)}
+                km/h
                 ${nearest.windDir}
             </span>
 
         </div>
+
     `;
 
 }
@@ -1026,42 +1485,64 @@ function renderCurrent(data){
 function renderForecast(data){
 
     const container =
-        document.getElementById("forecast");
+        document
+        .getElementById("forecast");
+
 
     container.innerHTML = "";
 
 
-    data.daily.forEach((day,index) => {
+    data.daily.forEach(
+        (day,index) => {
+
 
         const date =
-            new Date(day.date + "T12:00:00");
+            new Date(
+                day.date +
+                "T12:00:00"
+            );
 
 
         const dayName =
             date.toLocaleDateString(
+
                 "el-GR",
-                {weekday:"long"}
+
+                {
+                    weekday:"long"
+                }
+
             );
 
 
         const dateText =
             date.toLocaleDateString(
+
                 "el-GR",
+
                 {
                     day:"numeric",
                     month:"short"
                 }
+
             );
 
 
         /*
-        ΥΕΤΟΣ:
-        30% και πάνω -> emoji υετού.
-        Κάτω από 30% -> δεν βάζουμε emoji βροχής.
+        =========================
+        ΥΕΤΟΣ
+        =========================
+
+        Κάτω από 30%:
+        κανένα emoji υετού.
+
+        30% και πάνω:
+        emoji υετού.
         */
 
         let precipitationText =
-            `💧 ${day.precip}%`;
+            `${day.precip}%`;
+
 
         if(day.precip >= 30){
 
@@ -1072,9 +1553,13 @@ function renderForecast(data){
 
 
         const div =
-            document.createElement("div");
+            document
+            .createElement("div");
 
-        div.className = "day";
+
+        div.className =
+            "day";
+
 
         div.innerHTML = `
 
@@ -1087,10 +1572,14 @@ function renderForecast(data){
             </div>
 
             <div class="icon">
-                ${weatherIcon(day.code,true)}
+                ${weatherIcon(
+                    day.code,
+                    true
+                )}
             </div>
 
             <div class="temps">
+
                 <span class="max">
                     ${day.max}°
                 </span>
@@ -1098,6 +1587,7 @@ function renderForecast(data){
                 <span class="min">
                     ${day.min}°
                 </span>
+
             </div>
 
             <div class="precip">
@@ -1105,28 +1595,45 @@ function renderForecast(data){
             </div>
 
             <div class="wind">
-                💨 ${day.wind} km/h ${day.windDir}
+                💨
+                ${day.wind}
+                km/h
+                ${day.windDir}
             </div>
 
         `;
 
 
-        div.onclick = () => {
+        div.onclick =
+            () => {
 
-            document
-                .querySelectorAll(".day")
-                .forEach(x =>
-                    x.classList.remove("selected")
+                document
+                    .querySelectorAll(".day")
+                    .forEach(card => {
+
+                        card.classList
+                            .remove(
+                                "selected"
+                            );
+
+                    });
+
+
+                div.classList.add(
+                    "selected"
                 );
 
-            div.classList.add("selected");
 
-            showDayDetails(index);
+                showDayDetails(
+                    index
+                );
 
-        };
+            };
 
 
-        container.appendChild(div);
+        container.appendChild(
+            div
+        );
 
     });
 
@@ -1140,52 +1647,77 @@ function renderForecast(data){
 function showDayDetails(dayIndex){
 
     const day =
-        forecastData.daily[dayIndex];
+        forecastData
+        .daily[dayIndex];
+
 
     const details =
-        document.getElementById("details");
-
-
-    const dateStart =
-        day.date;
+        document
+        .getElementById("details");
 
 
     const hours =
-        forecastData.hourly.filter(hour =>
-            hour.time.startsWith(dateStart)
+        forecastData
+        .hourly
+        .filter(hour =>
+
+            hour.time.startsWith(
+                day.date
+            )
+
         );
 
 
     let html = `
 
         <h2>
+
             ${new Date(
-                day.date + "T12:00:00"
+                day.date +
+                "T12:00:00"
             ).toLocaleDateString(
+
                 "el-GR",
+
                 {
                     weekday:"long",
                     day:"numeric",
                     month:"long"
                 }
+
             )}
+
         </h2>
 
         <div class="hourly">
+
     `;
 
 
     hours.forEach(hour => {
 
         const time =
-            hour.time.substring(11,16);
+            hour.time.substring(
+                11,
+                16
+            );
 
 
-        let precipIcon = "";
+        /*
+        ΥΕΤΟΣ ΩΡΑΣ
+
+        30%+ = emoji
+        <30% = χωρίς emoji
+        */
+
+        let precipIcon =
+            "";
+
 
         if(hour.precip >= 30){
 
-            precipIcon = "🌧️";
+            precipIcon =
+                "🌧️";
 
         }
 
@@ -1199,25 +1731,42 @@ function showDayDetails(dayIndex){
                 </div>
 
                 <div class="hour-icon">
+
                     ${weatherIcon(
                         hour.code,
                         hour.isDay
                     )}
+
                 </div>
 
                 <div class="hour-temp">
-                    ${Math.round(hour.temp)}°
+
+                    ${Math.round(
+                        hour.temp
+                    )}°
+
                 </div>
 
                 <div>
+
                     ${precipIcon}
+
                     ${hour.precip}%
+
                 </div>
 
                 <div class="hour-wind">
-                    💨 ${Math.round(hour.wind)}
+
+                    💨
+
+                    ${Math.round(
+                        hour.wind
+                    )}
+
                     km/h
+
                     ${hour.windDir}
+
                 </div>
 
             </div>
@@ -1232,60 +1781,94 @@ function showDayDetails(dayIndex){
     `;
 
 
-    details.innerHTML = html;
+    details.innerHTML =
+        html;
 
-    details.style.display = "block";
+
+    details.style.display =
+        "block";
+
 
     details.scrollIntoView({
+
         behavior:"smooth",
+
         block:"start"
+
     });
 
 }
 
 
 /* =========================================================
-   ERROR
+   ERROR FUNCTIONS
 ========================================================= */
 
 function showError(message){
 
     const error =
-        document.getElementById("error");
+        document
+        .getElementById("error");
 
-    error.textContent = message;
 
-    error.style.display = "block";
+    error.textContent =
+        message;
+
+
+    error.style.display =
+        "block";
 
 }
 
 
 function hideError(){
 
-    document.getElementById("error")
-        .style.display = "none";
+    document
+        .getElementById("error")
+        .style.display =
+        "none";
 
 }
 
 
 /* =========================================================
-   BASIC HTML SAFETY
+   HTML ESCAPE
 ========================================================= */
 
 function escapeHTML(text){
 
     return String(text)
-        .replaceAll("&","&amp;")
-        .replaceAll("<","&lt;")
-        .replaceAll(">","&gt;")
-        .replaceAll('"',"&quot;")
-        .replaceAll("'","&#039;");
+
+        .replaceAll(
+            "&",
+            "&amp;"
+        )
+
+        .replaceAll(
+            "<",
+            "&lt;"
+        )
+
+        .replaceAll(
+            ">",
+            "&gt;"
+        )
+
+        .replaceAll(
+            '"',
+            "&quot;"
+        )
+
+        .replaceAll(
+            "'",
+            "&#039;"
+        );
 
 }
 
 
 /* =========================================================
-   ENTER KEY
+   ENTER = SEARCH
 ========================================================= */
 
 document
@@ -1294,7 +1877,9 @@ document
         "keydown",
         function(event){
 
-            if(event.key === "Enter"){
+            if(
+                event.key === "Enter"
+            ){
 
                 searchLocation();
 
@@ -1306,21 +1891,30 @@ document
 
 /* =========================================================
    AUTO REFRESH
-   Κάθε 2 ώρες.
-   ========================================================= */
+========================================================= */
 
-setInterval(() => {
+setInterval(
 
-    loadWeather(currentLocation);
+    () => {
 
-}, 2 * 60 * 60 * 1000);
+        loadWeather(
+            currentLocation
+        );
+
+    },
+
+    2 * 60 * 60 * 1000
+
+);
 
 
 /* =========================================================
    START
 ========================================================= */
 
-loadWeather(currentLocation);
+loadWeather(
+    currentLocation
+);
 
 </script>
 
