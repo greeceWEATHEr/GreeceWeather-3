@@ -4,9 +4,7 @@
 <head>
 
 <meta charset="UTF-8">
-
-<meta name="viewport"
-      content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Greece Weather</title>
 
@@ -55,9 +53,7 @@ header p{
     margin:20px auto 40px;
 }
 
-/* =========================
-   SEARCH
-========================= */
+/* SEARCH */
 
 .search-box{
     display:flex;
@@ -88,14 +84,11 @@ header p{
     color:#fff;
 }
 
-.search-box button:hover{
-    background:#0d75cc;
-}
-
 .search-box button:disabled{
     opacity:.6;
-    cursor:wait;
 }
+
+/* STATUS */
 
 .status{
     min-height:24px;
@@ -113,9 +106,7 @@ header p{
     color:#9ed7ff;
 }
 
-/* =========================
-   LOCATION
-========================= */
+/* LOCATION */
 
 .location-card{
     background:rgba(255,255,255,.09);
@@ -124,7 +115,6 @@ header p{
     padding:18px;
     margin-bottom:16px;
     text-align:center;
-    box-shadow:0 8px 30px rgba(0,0,0,.15);
 }
 
 .location-name{
@@ -135,7 +125,6 @@ header p{
 .location-country{
     margin-top:7px;
     font-size:17px;
-    opacity:.9;
 }
 
 .country-flag{
@@ -150,15 +139,7 @@ header p{
     opacity:.65;
 }
 
-.location-coordinates{
-    margin-top:7px;
-    font-size:12px;
-    opacity:.45;
-}
-
-/* =========================
-   CURRENT
-========================= */
+/* CURRENT */
 
 .current{
     display:grid;
@@ -181,9 +162,17 @@ header p{
 }
 
 .current-icon{
-    font-size:70px;
     width:82px;
-    text-align:center;
+    height:82px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+.current-icon svg{
+    width:78px;
+    height:78px;
 }
 
 .current-temp{
@@ -226,9 +215,7 @@ header p{
     margin-top:5px;
 }
 
-/* =========================
-   MODEL INFO
-========================= */
+/* MODELS */
 
 .model-info{
     background:rgba(255,255,255,.07);
@@ -257,9 +244,7 @@ header p{
     opacity:.7;
 }
 
-/* =========================
-   SECTION
-========================= */
+/* SECTION */
 
 .section-title{
     font-size:22px;
@@ -267,10 +252,10 @@ header p{
     margin:22px 0 12px;
 }
 
-/* =========================
-   15 DAYS
-   6 + 6 + 3
-========================= */
+/* =====================================================
+   15 ΗΜΕΡΕΣ
+   ΥΠΟΧΡΕΩΤΙΚΑ 6 + 6 + 3
+===================================================== */
 
 .days{
     display:grid;
@@ -322,15 +307,18 @@ header p{
 }
 
 .day-icon{
-    height:48px;
+    height:55px;
 
     display:flex;
     align-items:center;
     justify-content:center;
 
-    font-size:39px;
+    margin:7px 0;
+}
 
-    margin:8px 0;
+.day-icon svg{
+    width:50px;
+    height:50px;
 }
 
 .day-desc{
@@ -354,8 +342,6 @@ header p{
     opacity:.65;
 }
 
-/* precipitation only when >=30% */
-
 .precip{
     min-height:30px;
     margin-top:8px;
@@ -371,9 +357,7 @@ header p{
     opacity:.75;
 }
 
-/* =========================
-   HOURLY
-========================= */
+/* HOURLY */
 
 .hourly-wrapper{
     margin-top:20px;
@@ -397,7 +381,6 @@ header p{
         70px;
 
     align-items:center;
-
     gap:8px;
 
     background:rgba(255,255,255,.08);
@@ -411,8 +394,17 @@ header p{
 }
 
 .hour-icon{
-    font-size:29px;
-    text-align:center;
+    width:42px;
+    height:42px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+.hour-icon svg{
+    width:40px;
+    height:40px;
 }
 
 .hour-temp{
@@ -433,58 +425,18 @@ header p{
     opacity:.8;
 }
 
-/* =========================
-   SUN
-========================= */
-
-.sun-info{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:10px;
-    margin-top:14px;
-}
-
-.sun-box{
-    background:rgba(255,255,255,.08);
-    border-radius:13px;
-    padding:12px;
-    text-align:center;
-}
-
-/* =========================
-   FOOTER
-========================= */
-
-footer{
-    text-align:center;
-    margin-top:35px;
-    padding:20px;
-    opacity:.5;
-    font-size:12px;
-}
-
-/* =========================
-   TABLET
-========================= */
-
-@media(max-width:1050px){
-
-    .days{
-        grid-template-columns:
-            repeat(4,minmax(0,1fr));
-    }
-
-}
-
-/* =========================
-   MOBILE
-========================= */
+/* MOBILE */
 
 @media(max-width:750px){
 
     .current{
         grid-template-columns:1fr;
     }
+
+    /*
+       Σε κινητό αλλάζει μόνο για να χωράει.
+       Σε desktop παραμένει ΑΥΣΤΗΡΑ 6+6+3.
+    */
 
     .days{
         grid-template-columns:
@@ -505,10 +457,6 @@ footer{
     }
 
 }
-
-/* =========================
-   SMALL MOBILE
-========================= */
 
 @media(max-width:500px){
 
@@ -532,11 +480,6 @@ footer{
         gap:12px;
     }
 
-    .current-icon{
-        font-size:55px;
-        width:65px;
-    }
-
     .current-temp{
         font-size:42px;
     }
@@ -552,8 +495,6 @@ footer{
             42px
             1fr
             75px;
-
-        padding:9px 7px;
     }
 
 }
@@ -578,9 +519,6 @@ footer{
 
 <div class="container">
 
-
-<!-- SEARCH -->
-
 <div class="search-box">
 
 <input
@@ -591,57 +529,39 @@ footer{
     autocomplete="off"
 >
 
-<button
-    id="searchBtn"
->
+<button id="searchBtn">
     🔎 Αναζήτηση
 </button>
 
 </div>
 
 
-<div
-    id="status"
-    class="status"
-></div>
+<div id="status" class="status"></div>
 
+<div id="locationCard"></div>
 
-<!-- LOCATION -->
+<div id="current"></div>
 
-<div
-    id="locationCard"
-></div>
-
-
-<!-- CURRENT -->
-
-<div
-    id="current"
-></div>
-
-
-<!-- MODEL INFO -->
 
 <div class="model-info">
 
 <div class="model-main">
-📡 Multi-model πρόγνωση:
-ECMWF IFS • NOAA GFS • DWD ICON
+📡 ECMWF IFS • NOAA GFS • DWD ICON
 </div>
 
 <div class="model-sub">
-Οι διαθέσιμες τιμές συνδυάζονται από τα ενεργά μοντέλα.
+Multi-model συνδυασμός διαθέσιμων δεδομένων
 </div>
 
 <div class="model-sub">
-Έλεγχος νέων δεδομένων κάθε 5 λεπτά στα :00, :05, :10, :15...
+Έλεγχος νέων δεδομένων κάθε 5 λεπτά
 </div>
 
 <div
     id="modelStatus"
     class="model-status"
 >
-Μοντέλα: αναμονή δεδομένων...
+Μοντέλα: —
 </div>
 
 <div
@@ -654,20 +574,15 @@ ECMWF IFS • NOAA GFS • DWD ICON
 </div>
 
 
-<!-- 15 DAYS -->
-
 <div class="section-title">
 📅 Πρόγνωση 15 ημερών
 </div>
-
 
 <div
     id="days"
     class="days"
 ></div>
 
-
-<!-- HOURLY -->
 
 <div
     id="hourlySection"
@@ -697,34 +612,13 @@ ECMWF IFS • NOAA GFS • DWD ICON
 
 
 <footer>
-
-Weather data powered by Open-Meteo
-<br>
-ECMWF IFS • NOAA GFS • DWD ICON
-
+Weather data powered by Open-Meteo • ECMWF • NOAA • DWD
 </footer>
-
 
 </div>
 
 
 <script>
-
-/* =========================================================
-   GREECE WEATHER
-   MULTI-MODEL VERSION
-
-   Models:
-   ECMWF IFS
-   NOAA GFS
-   DWD ICON
-
-   Main idea:
-   Request models independently.
-   Combine available values instead of
-   changing to a different model after refresh.
-========================================================= */
-
 
 /* =========================================================
    ELEMENTS
@@ -765,12 +659,8 @@ const modelStatus =
 
 
 let locationData = null;
-
 let modelData = [];
-
 let combinedWeather = null;
-
-let refreshTimer = null;
 
 
 /* =========================================================
@@ -801,27 +691,99 @@ const MODELS = [
 
 
 /* =========================================================
+   FLAG
+========================================================= */
+
+function countryFlag(code){
+
+    if(!code)
+        return "🏳️";
+
+    code =
+        String(code).toUpperCase();
+
+    if(code.length !== 2)
+        return "🏳️";
+
+    return [...code]
+        .map(
+            c =>
+                String.fromCodePoint(
+                    127397 +
+                    c.charCodeAt(0)
+                )
+        )
+        .join("");
+}
+
+
+/* =========================================================
+   ESCAPE
+========================================================= */
+
+function escapeHTML(value){
+
+    return String(value)
+        .replaceAll("&","&amp;")
+        .replaceAll("<","&lt;")
+        .replaceAll(">","&gt;")
+        .replaceAll('"',"&quot;")
+        .replaceAll("'","&#039;");
+}
+
+
+/* =========================================================
    WEATHER DESCRIPTION
 ========================================================= */
 
-function weatherDescription(code){
+function weatherDescription(
+    code,
+    precipProbability=0,
+    precipitation=0
+){
 
-    const c = Number(code);
+    const c =
+        Number(code);
 
-    if(c === 0)
-        return "Αίθριος";
+    const p =
+        Number(precipProbability || 0);
 
-    if(c === 1)
-        return "Κυρίως αίθριος";
+    const mm =
+        Number(precipitation || 0);
 
-    if(c === 2)
-        return "Μερική συννεφιά";
 
-    if(c === 3)
-        return "Συννεφιασμένος";
+    /*
+       IMPORTANT:
+       Under 30% precipitation is NOT
+       described as rain/snow/storm.
+    */
 
-    if([45,48].includes(c))
-        return "Ομίχλη";
+    if(p < 30 || mm <= 0){
+
+        if(c === 0)
+            return "Αίθριος";
+
+        if(c === 1)
+            return "Κυρίως αίθριος";
+
+        if(c === 2)
+            return "Μερική συννεφιά";
+
+        if(c === 3)
+            return "Συννεφιασμένος";
+
+        if([45,48].includes(c))
+            return "Ομίχλη";
+
+        /*
+           If the model says precipitation but
+           probability is below 30%, use the
+           non-precipitating sky state.
+        */
+
+        return cloudDescriptionFromCode(c);
+    }
+
 
     if([51,53,55].includes(c))
         return "Ψιλόβροχο";
@@ -850,289 +812,658 @@ function weatherDescription(code){
     if([96,99].includes(c))
         return "Καταιγίδα με χαλάζι";
 
-    return "Άγνωστο";
+    return cloudDescriptionFromCode(c);
+}
+
+
+function cloudDescriptionFromCode(code){
+
+    const c =
+        Number(code);
+
+    if(c === 0)
+        return "Αίθριος";
+
+    if(c === 1)
+        return "Κυρίως αίθριος";
+
+    if(c === 2)
+        return "Μερική συννεφιά";
+
+    return "Συννεφιασμένος";
 }
 
 
 /* =========================================================
-   ONE-EMOJI WEATHER ICONS
+   SVG WEATHER ICON SYSTEM
 
-   IMPORTANT:
-   NEVER returns moon + cloud together.
-   One emoji only.
+   One visual icon only.
+
+   This solves the moon + cloud requirement without
+   putting two separate emoji together.
 ========================================================= */
 
-function weatherIcon(code,isDay=true){
+function svgWrap(content){
 
-    const c = Number(code);
+    return `
+    <svg
+        viewBox="0 0 100 100"
+        xmlns="http://www.w3.org/2000/svg"
+        aria-hidden="true"
+    >
+        ${content}
+    </svg>
+    `;
+}
 
-    if(!isDay){
 
-        if(c === 0)
-            return "🌙";
+/* DAY ICONS */
 
-        if(c === 1)
-            return "🌙";
+function daySVG(type){
 
-        if(c === 2)
-            return "🌥️";
+    if(type === "clear"){
 
-        if(c === 3)
-            return "☁️";
+        return svgWrap(`
+            <circle
+                cx="50"
+                cy="50"
+                r="25"
+                fill="#FFD84D"
+            />
+        `);
 
-        if([45,48].includes(c))
-            return "🌫️";
+    }
 
-        if(
+
+    if(type === "mostlyClear"){
+
+        return svgWrap(`
+            <circle
+                cx="57"
+                cy="42"
+                r="23"
+                fill="#FFD84D"
+            />
+
+            <path
+                d="M25 70
+                   C20 58 29 48 41 49
+                   C44 38 54 34 63 39
+                   C72 39 79 46 79 56
+                   C88 56 93 62 91 70
+                   Z"
+                fill="#dbe9f5"
+            />
+        `);
+
+    }
+
+
+    if(type === "partlyCloudy"){
+
+        return svgWrap(`
+            <circle
+                cx="61"
+                cy="39"
+                r="22"
+                fill="#FFD84D"
+            />
+
+            <path
+                d="M22 74
+                   C18 62 27 52 39 53
+                   C42 42 53 37 63 42
+                   C73 42 80 49 80 59
+                   C89 59 94 65 92 74
+                   Z"
+                fill="#d9e6f2"
+            />
+        `);
+
+    }
+
+
+    if(type === "cloudy"){
+
+        return svgWrap(`
+            <path
+                d="M19 73
+                   C15 59 25 49 38 50
+                   C42 39 53 34 64 40
+                   C74 40 82 48 82 58
+                   C91 58 96 65 93 73
+                   Z"
+                fill="#b9c8d6"
+            />
+
+            <path
+                d="M28 75
+                   C24 65 31 57 41 58
+                   C45 50 54 47 62 51
+                   C70 51 76 57 76 64
+                   C84 64 88 69 86 75
+                   Z"
+                fill="#dce6ee"
+            />
+        `);
+
+    }
+
+
+    if(type === "rain"){
+
+        return svgWrap(`
+            <path
+                d="M17 56
+                   C15 44 24 35 36 36
+                   C40 26 50 22 60 27
+                   C70 27 78 34 78 44
+                   C87 44 93 50 91 57
+                   Z"
+                fill="#aebdca"
+            />
+
+            <path
+                d="M35 68 L29 82"
+                stroke="#48a9e8"
+                stroke-width="6"
+                stroke-linecap="round"
+            />
+
+            <path
+                d="M53 68 L47 82"
+                stroke="#48a9e8"
+                stroke-width="6"
+                stroke-linecap="round"
+            />
+
+            <path
+                d="M71 68 L65 82"
+                stroke="#48a9e8"
+                stroke-width="6"
+                stroke-linecap="round"
+            />
+        `);
+
+    }
+
+
+    if(type === "snow"){
+
+        return svgWrap(`
+            <path
+                d="M17 56
+                   C15 44 24 35 36 36
+                   C40 26 50 22 60 27
+                   C70 27 78 34 78 44
+                   C87 44 93 50 91 57
+                   Z"
+                fill="#b9c8d6"
+            />
+
+            <text
+                x="30"
+                y="82"
+                font-size="18"
+                fill="#dff4ff"
+            >✦</text>
+
+            <text
+                x="47"
+                y="87"
+                font-size="18"
+                fill="#dff4ff"
+            >✦</text>
+
+            <text
+                x="64"
+                y="82"
+                font-size="18"
+                fill="#dff4ff"
+            >✦</text>
+        `);
+
+    }
+
+
+    if(type === "storm"){
+
+        return svgWrap(`
+            <path
+                d="M17 55
+                   C15 43 24 34 36 35
+                   C40 25 51 21 61 27
+                   C71 27 79 34 79 44
+                   C88 44 94 50 92 57
+                   Z"
+                fill="#8d9cab"
+            />
+
+            <path
+                d="M53 57
+                   L43 74
+                   L52 73
+                   L46 89
+                   L65 67
+                   L56 68
+                   Z"
+                fill="#FFD84D"
+            />
+        `);
+
+    }
+
+
+    return daySVG("clear");
+}
+
+
+/* =========================================================
+   NIGHT ICONS
+   ========================================================= */
+
+function nightSVG(type){
+
+    /*
+       ONE unified visual icon.
+       Not moon emoji + cloud emoji.
+    */
+
+    if(type === "clear"){
+
+        return svgWrap(`
+            <path
+                d="M65 19
+                   C49 22 39 35 41 49
+                   C43 64 57 75 72 72
+                   C79 71 84 68 89 63
+                   C82 67 74 66 68 62
+                   C57 55 53 42 58 31
+                   C60 26 63 22 68 19
+                   Z"
+                fill="#c9dcf5"
+            />
+        `);
+
+    }
+
+
+    if(type === "fewClouds"){
+
+        return svgWrap(`
+            <path
+                d="M62 16
+                   C48 20 40 31 41 43
+                   C42 51 47 58 54 61
+                   C51 54 51 45 55 37
+                   C58 29 63 23 69 20
+                   Z"
+                fill="#c9dcf5"
+            />
+
+            <path
+                d="M22 73
+                   C19 63 26 55 36 56
+                   C39 48 48 45 56 49
+                   C63 49 69 54 69 62
+                   C77 62 82 67 80 73
+                   Z"
+                fill="#9eafc1"
+            />
+        `);
+
+    }
+
+
+    if(type === "manyClouds"){
+
+        return svgWrap(`
+            <path
+                d="M66 17
+                   C52 20 44 30 44 41
+                   C44 49 48 55 55 59
+                   C53 52 54 43 58 36
+                   C61 28 66 22 72 19
+                   Z"
+                fill="#b8cce5"
+            />
+
+            <path
+                d="M15 68
+                   C12 55 22 46 34 47
+                   C38 37 49 33 59 39
+                   C68 39 76 46 76 56
+                   C86 56 93 63 90 70
+                   Z"
+                fill="#8e9dad"
+            />
+
+            <path
+                d="M28 76
+                   C26 67 33 61 42 62
+                   C45 55 53 52 61 56
+                   C68 56 73 61 73 68
+                   C80 68 84 72 82 76
+                   Z"
+                fill="#b9c5d0"
+            />
+        `);
+
+    }
+
+
+    if(type === "rain"){
+
+        return svgWrap(`
+            <path
+                d="M65 16
+                   C51 20 43 31 44 42
+                   C44 50 49 56 55 59
+                   C53 52 54 44 58 36
+                   C61 28 66 22 72 19
+                   Z"
+                fill="#c9dcf5"
+            />
+
+            <path
+                d="M17 59
+                   C15 47 24 38 36 39
+                   C40 29 50 25 60 30
+                   C69 30 77 37 77 47
+                   C86 47 92 53 90 60
+                   Z"
+                fill="#8f9eae"
+            />
+
+            <path
+                d="M34 70 L29 83"
+                stroke="#50ace8"
+                stroke-width="6"
+                stroke-linecap="round"
+            />
+
+            <path
+                d="M52 70 L47 83"
+                stroke="#50ace8"
+                stroke-width="6"
+                stroke-linecap="round"
+            />
+
+            <path
+                d="M70 70 L65 83"
+                stroke="#50ace8"
+                stroke-width="6"
+                stroke-linecap="round"
+            />
+        `);
+
+    }
+
+
+    if(type === "snow"){
+
+        return svgWrap(`
+            <path
+                d="M65 16
+                   C51 20 43 31 44 42
+                   C44 50 49 56 55 59
+                   C53 52 54 44 58 36
+                   C61 28 66 22 72 19
+                   Z"
+                fill="#c9dcf5"
+            />
+
+            <path
+                d="M17 59
+                   C15 47 24 38 36 39
+                   C40 29 50 25 60 30
+                   C69 30 77 37 77 47
+                   C86 47 92 53 90 60
+                   Z"
+                fill="#8f9eae"
+            />
+
+            <text
+                x="30"
+                y="81"
+                font-size="17"
+                fill="#e8f8ff"
+            >✦</text>
+
+            <text
+                x="48"
+                y="86"
+                font-size="17"
+                fill="#e8f8ff"
+            >✦</text>
+
+            <text
+                x="65"
+                y="81"
+                font-size="17"
+                fill="#e8f8ff"
+            >✦</text>
+        `);
+
+    }
+
+
+    if(type === "storm"){
+
+        return svgWrap(`
+            <path
+                d="M65 16
+                   C51 20 43 31 44 42
+                   C44 50 49 56 55 59
+                   C53 52 54 44 58 36
+                   C61 28 66 22 72 19
+                   Z"
+                fill="#c9dcf5"
+            />
+
+            <path
+                d="M16 58
+                   C14 46 24 37 36 38
+                   C40 28 50 24 60 29
+                   C69 29 77 36 77 46
+                   C86 46 92 52 90 59
+                   Z"
+                fill="#7f8e9d"
+            />
+
+            <path
+                d="M53 59
+                   L43 75
+                   L52 74
+                   L46 90
+                   L65 67
+                   L56 68
+                   Z"
+                fill="#FFD84D"
+            />
+        `);
+
+    }
+
+
+    return nightSVG("clear");
+}
+
+
+/* =========================================================
+   SKY STATE
+========================================================= */
+
+function getSkyState(
+    code,
+    cloud,
+    probability,
+    precipitation,
+    isDay,
+    snowfall
+){
+
+    const c =
+        Number(code || 0);
+
+    const clouds =
+        Number(cloud || 0);
+
+    const prob =
+        Number(probability || 0);
+
+    const precip =
+        Number(precipitation || 0);
+
+    const snow =
+        Number(snowfall || 0);
+
+
+    /*
+       STRICT precipitation threshold.
+    */
+
+    const hasPrecip =
+        prob >= 30 &&
+        (
+            precip > 0 ||
             [51,53,55,
              56,57,
              61,63,65,
              66,67,
-             80,81,82].includes(c)
-        )
-            return "🌧️";
+             71,73,75,77,
+             80,81,82,
+             85,86,
+             95,96,99].includes(c)
+        );
 
-        if(
-            [71,73,75,77,
-             85,86].includes(c)
-        )
-            return "🌨️";
 
-        if([95,96,99].includes(c))
-            return "⛈️";
+    /*
+       Snow.
+    */
 
-        return "🌙";
+    const hasSnow =
+        hasPrecip &&
+        (
+            snow > 0 ||
+            [71,73,75,77,85,86]
+                .includes(c)
+        );
+
+
+    /*
+       Storm.
+    */
+
+    const hasStorm =
+        hasPrecip &&
+        [95,96,99].includes(c);
+
+
+    /*
+       Rain.
+    */
+
+    const hasRain =
+        hasPrecip &&
+        !hasSnow &&
+        !hasStorm &&
+        [
+            51,53,55,
+            56,57,
+            61,63,65,
+            66,67,
+            80,81,82
+        ].includes(c);
+
+
+    if(!isDay){
+
+        if(hasStorm)
+            return "storm";
+
+        if(hasSnow)
+            return "snow";
+
+        if(hasRain)
+            return "rain";
+
+        /*
+           Night cloud amount.
+        */
+
+        if(clouds < 25)
+            return "clear";
+
+        if(clouds < 65)
+            return "fewClouds";
+
+        return "manyClouds";
     }
 
 
-    if(c === 0)
-        return "☀️";
+    if(hasStorm)
+        return "storm";
 
-    if(c === 1)
-        return "🌤️";
+    if(hasSnow)
+        return "snow";
 
-    if(c === 2)
-        return "⛅";
+    if(hasRain)
+        return "rain";
 
-    if(c === 3)
-        return "☁️";
 
-    if([45,48].includes(c))
-        return "🌫️";
+    /*
+       Day cloud classification.
+    */
 
-    if([51,53,55])
-        return "🌦️";
+    if(clouds < 20)
+        return "clear";
 
-    if([56,57].includes(c))
-        return "🌧️";
+    if(clouds < 45)
+        return "mostlyClear";
 
-    if([61,63,65,
-        66,67].includes(c))
-        return "🌧️";
+    if(clouds < 70)
+        return "partlyCloudy";
 
-    if([71,73,75,77].includes(c))
-        return "❄️";
-
-    if([80,81,82].includes(c))
-        return "🌦️";
-
-    if([85,86].includes(c))
-        return "🌨️";
-
-    if([95,96,99].includes(c))
-        return "⛈️";
-
-    return "🌤️";
+    return "cloudy";
 }
 
 
 /* =========================================================
-   IMPORTANT FIX:
-   precipitating icon is only shown if
-   probability >= 30%.
-
-   This function overrides weather icon
-   when probability is below threshold.
+   ICON
 ========================================================= */
 
-function finalWeatherIcon(
+function weatherSVG(
     code,
+    cloud,
+    probability,
+    precipitation,
     isDay,
-    precipitationProbability
+    snowfall
 ){
 
-    const probability =
-        Number(
-            precipitationProbability || 0
+    const state =
+        getSkyState(
+            code,
+            cloud,
+            probability,
+            precipitation,
+            isDay,
+            snowfall
         );
 
-    /*
-       If precipitation probability is below 30%,
-       do NOT show precipitation emoji.
-    */
 
-    if(probability < 30){
-
-        const c = Number(code);
-
-        if(!isDay){
-
-            if(c === 0 || c === 1)
-                return "🌙";
-
-            if(c === 2)
-                return "🌥️";
-
-            if(c === 3 ||
-               [45,48].includes(c))
-                return "☁️";
-
-            /*
-               Even if a model gives a precipitation
-               code, probability <30 means no
-               precipitation emoji.
-            */
-
-            return "🌙";
-        }
+    if(isDay)
+        return daySVG(
+            state === "fewClouds"
+                ? "mostlyClear"
+                : state
+        );
 
 
-        if(c === 0)
-            return "☀️";
-
-        if(c === 1)
-            return "🌤️";
-
-        if(c === 2)
-            return "⛅";
-
-        if(c === 3 ||
-           [45,48].includes(c))
-            return "☁️";
-
-        return "🌤️";
-    }
-
-
-    /*
-       >=30%:
-       precipitation phenomenon is allowed.
-    */
-
-    return weatherIcon(code,isDay);
-}
-
-
-/* =========================================================
-   WIND DIRECTION
-========================================================= */
-
-function windDirection(degrees){
-
-    if(
-        degrees === null ||
-        degrees === undefined ||
-        isNaN(degrees)
-    )
-        return "—";
-
-    const dirs = [
-        "Β",
-        "ΒΑ",
-        "Α",
-        "ΝΑ",
-        "Ν",
-        "ΝΔ",
-        "Δ",
-        "ΒΔ"
-    ];
-
-    const index =
-        Math.round(
-            Number(degrees) / 45
-        ) % 8;
-
-    return dirs[index];
-}
-
-
-/* =========================================================
-   COUNTRY FLAG
-========================================================= */
-
-function countryFlag(countryCode){
-
-    if(!countryCode)
-        return "🏳️";
-
-    const code =
-        String(countryCode)
-        .toUpperCase();
-
-    if(code.length !== 2)
-        return "🏳️";
-
-    return [...code]
-        .map(
-            char =>
-                String.fromCodePoint(
-                    127397 +
-                    char.charCodeAt(0)
-                )
-        )
-        .join("");
-}
-
-
-/* =========================================================
-   ESCAPE HTML
-========================================================= */
-
-function escapeHTML(value){
-
-    return String(value)
-        .replaceAll("&","&amp;")
-        .replaceAll("<","&lt;")
-        .replaceAll(">","&gt;")
-        .replaceAll('"',"&quot;")
-        .replaceAll("'","&#039;");
-}
-
-
-/* =========================================================
-   DATE HELPERS
-========================================================= */
-
-function dateObject(dateString){
-
-    return new Date(
-        dateString + "T12:00:00"
+    return nightSVG(
+        state
     );
-}
-
-
-function formatDate(dateString){
-
-    return dateObject(dateString)
-        .toLocaleDateString(
-            "el-GR",
-            {
-                day:"2-digit",
-                month:"2-digit"
-            }
-        );
-}
-
-
-function dayName(dateString){
-
-    return dateObject(dateString)
-        .toLocaleDateString(
-            "el-GR",
-            {
-                weekday:"short"
-            }
-        );
 }
 
 
@@ -1153,51 +1484,119 @@ function average(values){
     if(!valid.length)
         return null;
 
-    return (
-        valid.reduce(
-            (sum,x) =>
-                sum + Number(x),
-            0
-        ) / valid.length
-    );
+    return valid.reduce(
+        (sum,x) =>
+            sum + Number(x),
+        0
+    ) / valid.length;
 }
 
 
 /* =========================================================
-   ROUND
+   DATE
 ========================================================= */
 
-function roundNumber(value,digits=1){
+function formatDate(date){
 
-    if(
-        value === null ||
-        value === undefined ||
-        isNaN(value)
-    )
-        return null;
+    return new Date(
+        date + "T12:00:00"
+    ).toLocaleDateString(
+        "el-GR",
+        {
+            day:"2-digit",
+            month:"2-digit"
+        }
+    );
+}
 
-    return Number(
-        Number(value).toFixed(digits)
+
+function dayName(date){
+
+    return new Date(
+        date + "T12:00:00"
+    ).toLocaleDateString(
+        "el-GR",
+        {
+            weekday:"short"
+        }
     );
 }
 
 
 /* =========================================================
-   MODEL API
+   LOCATION
+========================================================= */
+
+async function searchLocation(query){
+
+    const url =
+        "https://geocoding-api.open-meteo.com/v1/search" +
+        "?name=" +
+        encodeURIComponent(query) +
+        "&count=10" +
+        "&language=el" +
+        "&format=json";
+
+
+    const response =
+        await fetch(url);
+
+
+    if(!response.ok)
+        throw new Error(
+            "Σφάλμα αναζήτησης."
+        );
+
+
+    const data =
+        await response.json();
+
+
+    if(
+        !data.results ||
+        !data.results.length
+    ){
+
+        throw new Error(
+            "Δεν βρέθηκε η περιοχή."
+        );
+
+    }
+
+
+    const q =
+        query
+            .trim()
+            .toLowerCase();
+
+
+    return (
+        data.results.find(
+            x =>
+                String(x.name)
+                .toLowerCase() === q
+        )
+        ||
+        data.results[0]
+    );
+}
+
+
+/* =========================================================
+   MODEL REQUEST
 ========================================================= */
 
 async function getModelWeather(
     model,
-    latitude,
-    longitude
+    lat,
+    lon
 ){
 
     const params =
         new URLSearchParams({
 
-            latitude:latitude,
-
-            longitude:longitude,
+            latitude:lat,
+            longitude:lon,
 
             timezone:"auto",
 
@@ -1223,8 +1622,6 @@ async function getModelWeather(
                 "apparent_temperature",
                 "precipitation_probability",
                 "precipitation",
-                "rain",
-                "showers",
                 "snowfall",
                 "weather_code",
                 "cloud_cover",
@@ -1243,8 +1640,6 @@ async function getModelWeather(
                 "sunrise",
                 "sunset",
                 "precipitation_sum",
-                "rain_sum",
-                "showers_sum",
                 "snowfall_sum",
                 "precipitation_probability_max",
                 "wind_speed_10m_max",
@@ -1255,23 +1650,18 @@ async function getModelWeather(
         });
 
 
-    const url =
-        "https://api.open-meteo.com/v1/forecast?" +
-        params.toString();
-
-
     const response =
-        await fetch(url);
+        await fetch(
+            "https://api.open-meteo.com/v1/forecast?" +
+            params.toString()
+        );
 
 
-    if(!response.ok){
-
+    if(!response.ok)
         throw new Error(
             model.name +
             " δεν απάντησε."
         );
-
-    }
 
 
     const data =
@@ -1287,67 +1677,10 @@ async function getModelWeather(
 
 
 /* =========================================================
-   SEARCH LOCATION
+   LOAD MODELS
 ========================================================= */
 
-async function searchLocation(query){
-
-    const url =
-        "https://geocoding-api.open-meteo.com/v1/search" +
-        "?name=" +
-        encodeURIComponent(query) +
-        "&count=10" +
-        "&language=el" +
-        "&format=json";
-
-
-    const response =
-        await fetch(url);
-
-
-    if(!response.ok)
-        throw new Error(
-            "Σφάλμα κατά την αναζήτηση."
-        );
-
-
-    const data =
-        await response.json();
-
-
-    if(
-        !data.results ||
-        data.results.length === 0
-    ){
-
-        throw new Error(
-            "Δεν βρέθηκε η περιοχή. Γράψε υπαρκτή πόλη ή περιοχή."
-        );
-
-    }
-
-
-    const normalized =
-        query.trim().toLowerCase();
-
-
-    const exact =
-        data.results.find(
-            item =>
-                String(item.name)
-                .toLowerCase() === normalized
-        );
-
-
-    return exact || data.results[0];
-}
-
-
-/* =========================================================
-   LOAD ALL MODELS
-========================================================= */
-
-async function loadAllModels(){
+async function loadModels(){
 
     modelStatus.textContent =
         "Μοντέλα: λήψη ECMWF + GFS + ICON...";
@@ -1357,9 +1690,9 @@ async function loadAllModels(){
         await Promise.allSettled(
 
             MODELS.map(
-                model =>
+                m =>
                     getModelWeather(
-                        model,
+                        m,
                         locationData.latitude,
                         locationData.longitude
                     )
@@ -1371,43 +1704,29 @@ async function loadAllModels(){
     modelData =
         results
             .filter(
-                result =>
-                    result.status === "fulfilled"
+                r =>
+                    r.status === "fulfilled"
             )
             .map(
-                result =>
-                    result.value
+                r =>
+                    r.value
             );
 
 
-    if(!modelData.length){
-
+    if(!modelData.length)
         throw new Error(
-            "Δεν ήταν δυνατή η λήψη δεδομένων από τα μοντέλα."
+            "Δεν υπάρχουν διαθέσιμα μοντέλα."
         );
-
-    }
-
-
-    const names =
-        modelData
-            .map(
-                data =>
-                    data.__model.short
-            )
-            .join(" + ");
 
 
     modelStatus.textContent =
-        "Ενεργά μοντέλα: " + names;
-
-
-    if(modelData.length < 3){
-
-        modelStatus.textContent +=
-            " • Κάποιο μοντέλο δεν ήταν προσωρινά διαθέσιμο.";
-
-    }
+        "Ενεργά μοντέλα: " +
+        modelData
+            .map(
+                x =>
+                    x.__model.short
+            )
+            .join(" + ");
 
 
     combineModels();
@@ -1415,139 +1734,100 @@ async function loadAllModels(){
 
 
 /* =========================================================
-   FIND HOURLY INDEX BY TIME
+   COMBINE
 ========================================================= */
 
-function getHourlyTimes(){
+function combineModels(){
 
     const first =
-        modelData.find(
-            x =>
-                x.hourly &&
-                x.hourly.time
-        );
-
-    if(!first)
-        return [];
-
-    return first.hourly.time;
-}
+        modelData[0];
 
 
-/* =========================================================
-   COMBINE CURRENT DATA
-========================================================= */
-
-function combineCurrent(){
+    /* CURRENT */
 
     const currents =
-        modelData
-            .map(
-                data =>
-                    data.current
-            )
-            .filter(Boolean);
+        modelData.map(
+            x =>
+                x.current
+        );
 
 
-    if(!currents.length)
-        return null;
-
-
-    return {
+    const current = {
 
         temperature_2m:
             average(
                 currents.map(
-                    x =>
-                        x.temperature_2m
+                    x => x.temperature_2m
                 )
             ),
 
         relative_humidity_2m:
             average(
                 currents.map(
-                    x =>
-                        x.relative_humidity_2m
+                    x => x.relative_humidity_2m
                 )
             ),
 
         apparent_temperature:
             average(
                 currents.map(
-                    x =>
-                        x.apparent_temperature
+                    x => x.apparent_temperature
                 )
             ),
-
-        is_day:
-            currents[0].is_day,
 
         precipitation:
             average(
                 currents.map(
-                    x =>
-                        x.precipitation
+                    x => x.precipitation
                 )
             ),
 
         cloud_cover:
             average(
                 currents.map(
-                    x =>
-                        x.cloud_cover
+                    x => x.cloud_cover
                 )
             ),
 
         wind_speed_10m:
             average(
                 currents.map(
-                    x =>
-                        x.wind_speed_10m
+                    x => x.wind_speed_10m
                 )
             ),
 
         wind_direction_10m:
             average(
                 currents.map(
-                    x =>
-                        x.wind_direction_10m
+                    x => x.wind_direction_10m
                 )
             ),
 
         wind_gusts_10m:
             average(
                 currents.map(
-                    x =>
-                        x.wind_gusts_10m
+                    x => x.wind_gusts_10m
                 )
-            )
+            ),
+
+        is_day:
+            currents[0].is_day
 
     };
-}
 
 
-/* =========================================================
-   COMBINE HOURLY DATA
+    /* HOURLY */
 
-   Weather code is selected using the model
-   with strongest precipitation probability.
-   Numerical fields are averaged.
-========================================================= */
-
-function combineHourly(){
-
-    const baseTimes =
-        getHourlyTimes();
-
-
-    const result = {
+    const hourly = {
 
         time:[],
         temperature_2m:[],
         apparent_temperature:[],
         precipitation_probability:[],
         precipitation:[],
+        snowfall:[],
         weather_code:[],
+        cloud_cover:[],
         wind_speed_10m:[],
         wind_direction_10m:[],
         wind_gusts_10m:[],
@@ -1558,225 +1838,303 @@ function combineHourly(){
 
     for(
         let i=0;
-        i<baseTimes.length;
+        i<first.hourly.time.length;
         i++
     ){
 
         const time =
-            baseTimes[i];
+            first.hourly.time[i];
 
 
-        const entries = [];
+        const rows = [];
 
 
-        for(
-            const data of modelData
-        ){
+        modelData.forEach(
+            data => {
 
-            const index =
-                data.hourly.time.indexOf(
-                    time
+                const j =
+                    data.hourly.time
+                        .indexOf(time);
+
+
+                if(j >= 0){
+
+                    rows.push({
+
+                        temp:
+                            data.hourly.temperature_2m[j],
+
+                        apparent:
+                            data.hourly.apparent_temperature[j],
+
+                        probability:
+                            data.hourly.precipitation_probability[j],
+
+                        precipitation:
+                            data.hourly.precipitation[j],
+
+                        snowfall:
+                            data.hourly.snowfall[j],
+
+                        code:
+                            data.hourly.weather_code[j],
+
+                        cloud:
+                            data.hourly.cloud_cover[j],
+
+                        wind:
+                            data.hourly.wind_speed_10m[j],
+
+                        direction:
+                            data.hourly.wind_direction_10m[j],
+
+                        gust:
+                            data.hourly.wind_gusts_10m[j],
+
+                        isDay:
+                            data.hourly.is_day[j]
+
+                    });
+
+                }
+
+            }
+        );
+
+
+        if(!rows.length)
+            continue;
+
+
+        hourly.time.push(time);
+
+
+        hourly.temperature_2m.push(
+            average(
+                rows.map(
+                    x => x.temp
+                )
+            )
+        );
+
+
+        hourly.apparent_temperature.push(
+            average(
+                rows.map(
+                    x => x.apparent
+                )
+            )
+        );
+
+
+        hourly.precipitation_probability.push(
+            average(
+                rows.map(
+                    x => x.probability
+                )
+            )
+        );
+
+
+        hourly.precipitation.push(
+            average(
+                rows.map(
+                    x => x.precipitation
+                )
+            )
+        );
+
+
+        hourly.snowfall.push(
+            average(
+                rows.map(
+                    x => x.snowfall
+                )
+            )
+        );
+
+
+        hourly.cloud_cover.push(
+            average(
+                rows.map(
+                    x => x.cloud
+                )
+            )
+        );
+
+
+        hourly.wind_speed_10m.push(
+            average(
+                rows.map(
+                    x => x.wind
+                )
+            )
+        );
+
+
+        hourly.wind_direction_10m.push(
+            average(
+                rows.map(
+                    x => x.direction
+                )
+            )
+        );
+
+
+        hourly.wind_gusts_10m.push(
+            average(
+                rows.map(
+                    x => x.gust
+                )
+            )
+        );
+
+
+        hourly.is_day.push(
+            rows[0].isDay
+        );
+
+
+        /*
+           Do NOT choose weather code from the
+           highest probability model.
+
+           Instead choose the most severe actual
+           precipitation phenomenon ONLY when
+           probability >=30.
+
+           Otherwise cloud cover controls icon.
+        */
+
+        const probability =
+            average(
+                rows.map(
+                    x => x.probability
+                )
+            );
+
+
+        let chosenCode = 0;
+
+
+        if(probability >= 30){
+
+            const precipRows =
+                rows.filter(
+                    x =>
+                        x.probability >= 30
                 );
 
 
-            if(index === -1)
-                continue;
+            if(precipRows.length){
+
+                precipRows.sort(
+                    (a,b) => {
+
+                        const severity = code => {
+
+                            if(
+                                [95,96,99]
+                                .includes(code)
+                            )
+                                return 6;
+
+                            if(
+                                [71,73,75,77,
+                                 85,86]
+                                .includes(code)
+                            )
+                                return 5;
+
+                            if(
+                                [61,63,65,
+                                 66,67,
+                                 80,81,82]
+                                .includes(code)
+                            )
+                                return 4;
+
+                            if(
+                                [51,53,55,
+                                 56,57]
+                                .includes(code)
+                            )
+                                return 3;
+
+                            return 0;
+
+                        };
 
 
-            entries.push({
+                        return severity(b.code)
+                            -
+                            severity(a.code);
 
-                temp:
-                    data.hourly.temperature_2m[index],
+                    }
+                );
 
-                apparent:
-                    data.hourly.apparent_temperature[index],
 
-                probability:
-                    data.hourly.precipitation_probability
-                        ? data.hourly.precipitation_probability[index]
-                        : 0,
+                chosenCode =
+                    precipRows[0].code;
 
-                precipitation:
-                    data.hourly.precipitation[index],
+            }
 
-                code:
-                    data.hourly.weather_code[index],
+        }
+        else{
 
-                wind:
-                    data.hourly.wind_speed_10m[index],
+            /*
+               No precipitation:
+               code is derived from average cloud
+               cover, avoiding false permanent clouds.
+            */
 
-                direction:
-                    data.hourly.wind_direction_10m[index],
+            const cloud =
+                average(
+                    rows.map(
+                        x => x.cloud
+                    )
+                );
 
-                gust:
-                    data.hourly.wind_gusts_10m[index],
 
-                isDay:
-                    data.hourly.is_day[index]
+            if(cloud < 20)
+                chosenCode = 0;
 
-            });
+            else if(cloud < 45)
+                chosenCode = 1;
+
+            else if(cloud < 70)
+                chosenCode = 2;
+
+            else
+                chosenCode = 3;
 
         }
 
 
-        if(!entries.length)
-            continue;
-
-
-        /*
-           Average numerical fields.
-        */
-
-        result.time.push(time);
-
-        result.temperature_2m.push(
-            average(
-                entries.map(
-                    x =>
-                        x.temp
-                )
-            )
-        );
-
-        result.apparent_temperature.push(
-            average(
-                entries.map(
-                    x =>
-                        x.apparent
-                )
-            )
-        );
-
-        result.precipitation_probability.push(
-            average(
-                entries.map(
-                    x =>
-                        x.probability
-                )
-            )
-        );
-
-        result.precipitation.push(
-            average(
-                entries.map(
-                    x =>
-                        x.precipitation
-                )
-            )
-        );
-
-        result.wind_speed_10m.push(
-            average(
-                entries.map(
-                    x =>
-                        x.wind
-                )
-            )
-        );
-
-        result.wind_direction_10m.push(
-            average(
-                entries.map(
-                    x =>
-                        x.direction
-                )
-            )
-        );
-
-        result.wind_gusts_10m.push(
-            average(
-                entries.map(
-                    x =>
-                        x.gust
-                )
-            )
-        );
-
-        result.is_day.push(
-            entries[0].isDay
-        );
-
-
-        /*
-           Select weather phenomenon from
-           the model with highest probability.
-
-           This avoids averaging WMO codes,
-           because WMO codes are categorical.
-        */
-
-        const strongest =
-            entries.reduce(
-                (best,current) => {
-
-                    if(!best)
-                        return current;
-
-                    return
-                        current.probability >
-                        best.probability
-                            ? current
-                            : best;
-
-                },
-                null
-            );
-
-
-        result.weather_code.push(
-            strongest
-                ? strongest.code
-                : 0
+        hourly.weather_code.push(
+            chosenCode
         );
 
     }
 
 
-    return result;
-}
+    /* DAILY */
 
+    const daily = {
 
-/* =========================================================
-   COMBINE DAILY DATA
-========================================================= */
-
-function combineDaily(){
-
-    const first =
-        modelData.find(
-            x =>
-                x.daily &&
-                x.daily.time
-        );
-
-
-    if(!first)
-        return null;
-
-
-    const dates =
-        first.daily.time;
-
-
-    const result = {
-
-        time:dates,
+        time:first.daily.time,
 
         temperature_2m_max:[],
         temperature_2m_min:[],
-
         apparent_temperature_max:[],
         apparent_temperature_min:[],
 
         precipitation_sum:[],
+        snowfall_sum:[],
         precipitation_probability_max:[],
 
         weather_code:[],
-
-        wind_speed_10m_max:[],
-        wind_gusts_10m_max:[],
-        wind_direction_10m_dominant:[],
-
+        cloud_cover:[],
         sunrise:[],
         sunset:[]
 
@@ -1784,243 +2142,256 @@ function combineDaily(){
 
 
     for(
-        let day=0;
-        day<dates.length;
-        day++
+        let d=0;
+        d<first.daily.time.length;
+        d++
     ){
 
         const date =
-            dates[day];
+            first.daily.time[d];
 
 
         const rows = [];
 
 
+        modelData.forEach(
+            data => {
+
+                const j =
+                    data.daily.time
+                        .indexOf(date);
+
+
+                if(j >= 0){
+
+                    rows.push({
+
+                        max:
+                            data.daily.temperature_2m_max[j],
+
+                        min:
+                            data.daily.temperature_2m_min[j],
+
+                        apparentMax:
+                            data.daily.apparent_temperature_max[j],
+
+                        apparentMin:
+                            data.daily.apparent_temperature_min[j],
+
+                        precipitation:
+                            data.daily.precipitation_sum[j],
+
+                        snowfall:
+                            data.daily.snowfall_sum[j],
+
+                        probability:
+                            data.daily.precipitation_probability_max[j],
+
+                        code:
+                            data.daily.weather_code[j],
+
+                        sunrise:
+                            data.daily.sunrise[j],
+
+                        sunset:
+                            data.daily.sunset[j]
+
+                    });
+
+                }
+
+            }
+        );
+
+
+        daily.temperature_2m_max.push(
+            average(
+                rows.map(x => x.max)
+            )
+        );
+
+
+        daily.temperature_2m_min.push(
+            average(
+                rows.map(x => x.min)
+            )
+        );
+
+
+        daily.apparent_temperature_max.push(
+            average(
+                rows.map(x => x.apparentMax)
+            )
+        );
+
+
+        daily.apparent_temperature_min.push(
+            average(
+                rows.map(x => x.apparentMin)
+            )
+        );
+
+
+        const dailyPrecip =
+            average(
+                rows.map(
+                    x => x.precipitation
+                )
+            );
+
+
+        const dailySnow =
+            average(
+                rows.map(
+                    x => x.snowfall
+                )
+            );
+
+
+        const dailyProbability =
+            average(
+                rows.map(
+                    x => x.probability
+                )
+            );
+
+
+        daily.precipitation_sum.push(
+            dailyPrecip
+        );
+
+
+        daily.snowfall_sum.push(
+            dailySnow
+        );
+
+
+        daily.precipitation_probability_max.push(
+            dailyProbability
+        );
+
+
+        /*
+           Derive daily cloud cover from hourly
+           combined data for that date.
+        */
+
+        const cloudValues = [];
+
+
         for(
-            const data of modelData
+            let h=0;
+            h<hourly.time.length;
+            h++
         ){
 
-            const index =
-                data.daily.time.indexOf(
-                    date
+            if(
+                hourly.time[h]
+                    .startsWith(date)
+            ){
+
+                cloudValues.push(
+                    hourly.cloud_cover[h]
                 );
 
-
-            if(index === -1)
-                continue;
-
-
-            rows.push({
-
-                max:
-                    data.daily.temperature_2m_max[index],
-
-                min:
-                    data.daily.temperature_2m_min[index],
-
-                apparentMax:
-                    data.daily.apparent_temperature_max[index],
-
-                apparentMin:
-                    data.daily.apparent_temperature_min[index],
-
-                precipitation:
-                    data.daily.precipitation_sum[index],
-
-                probability:
-                    data.daily.precipitation_probability_max
-                        ? data.daily.precipitation_probability_max[index]
-                        : 0,
-
-                code:
-                    data.daily.weather_code[index],
-
-                wind:
-                    data.daily.wind_speed_10m_max[index],
-
-                gust:
-                    data.daily.wind_gusts_10m_max[index],
-
-                direction:
-                    data.daily.wind_direction_10m_dominant[index],
-
-                sunrise:
-                    data.daily.sunrise[index],
-
-                sunset:
-                    data.daily.sunset[index]
-
-            });
+            }
 
         }
 
 
-        if(!rows.length)
-            continue;
+        const averageCloud =
+            average(cloudValues) ?? 50;
 
 
-        result.temperature_2m_max.push(
-            average(
-                rows.map(
-                    x =>
-                        x.max
-                )
-            )
-        );
-
-
-        result.temperature_2m_min.push(
-            average(
-                rows.map(
-                    x =>
-                        x.min
-                )
-            )
-        );
-
-
-        result.apparent_temperature_max.push(
-            average(
-                rows.map(
-                    x =>
-                        x.apparentMax
-                )
-            )
-        );
-
-
-        result.apparent_temperature_min.push(
-            average(
-                rows.map(
-                    x =>
-                        x.apparentMin
-                )
-            )
-        );
-
-
-        result.precipitation_sum.push(
-            average(
-                rows.map(
-                    x =>
-                        x.precipitation
-                )
-            )
+        daily.cloud_cover.push(
+            averageCloud
         );
 
 
         /*
-           IMPORTANT:
-           Daily precipitation probability
-           is also averaged between models.
+           Determine daily weather condition
+           from ACTUAL precipitation probability
+           and precipitation type.
         */
 
-        const probability =
-            average(
+        let dailyCode = 0;
+
+
+        if(dailyProbability >= 30){
+
+            const codes =
                 rows.map(
+                    x => x.code
+                );
+
+
+            if(
+                codes.some(
                     x =>
-                        x.probability
-                )
-            );
-
-
-        result.precipitation_probability_max.push(
-            probability
-        );
-
-
-        result.wind_speed_10m_max.push(
-            average(
-                rows.map(
-                    x =>
-                        x.wind
+                        [95,96,99]
+                        .includes(x)
                 )
             )
-        );
+                dailyCode = 95;
 
-
-        result.wind_gusts_10m_max.push(
-            average(
-                rows.map(
+            else if(
+                dailySnow > 0 ||
+                codes.some(
                     x =>
-                        x.gust
+                        [71,73,75,77,
+                         85,86]
+                        .includes(x)
                 )
             )
+                dailyCode = 71;
+
+            else
+                dailyCode = 61;
+
+        }
+        else{
+
+            if(averageCloud < 20)
+                dailyCode = 0;
+
+            else if(averageCloud < 45)
+                dailyCode = 1;
+
+            else if(averageCloud < 70)
+                dailyCode = 2;
+
+            else
+                dailyCode = 3;
+
+        }
+
+
+        daily.weather_code.push(
+            dailyCode
         );
 
 
-        result.wind_direction_10m_dominant.push(
-            average(
-                rows.map(
-                    x =>
-                        x.direction
-                )
-            )
+        daily.sunrise.push(
+            rows[0]
+                ? rows[0].sunrise
+                : null
         );
 
 
-        result.sunrise.push(
-            rows[0].sunrise
-        );
-
-
-        result.sunset.push(
-            rows[0].sunset
-        );
-
-
-        /*
-           Again, categorical weather code:
-           select strongest precipitating model.
-        */
-
-        const strongest =
-            rows.reduce(
-                (best,current) => {
-
-                    if(!best)
-                        return current;
-
-                    return
-                        current.probability >
-                        best.probability
-                            ? current
-                            : best;
-
-                },
-                null
-            );
-
-
-        result.weather_code.push(
-            strongest
-                ? strongest.code
-                : 0
+        daily.sunset.push(
+            rows[0]
+                ? rows[0].sunset
+                : null
         );
 
     }
 
 
-    return result;
-}
-
-
-/* =========================================================
-   COMBINE EVERYTHING
-========================================================= */
-
-function combineModels(){
-
     combinedWeather = {
 
-        current:
-            combineCurrent(),
-
-        hourly:
-            combineHourly(),
-
-        daily:
-            combineDaily()
+        current,
+        hourly,
+        daily
 
     };
 
@@ -2037,22 +2408,6 @@ function renderLocation(){
         locationData;
 
 
-    const flag =
-        countryFlag(
-            x.country_code
-        );
-
-
-    const country =
-        x.country ||
-        "Άγνωστη χώρα";
-
-
-    const admin =
-        x.admin1 ||
-        "";
-
-
     locationCard.innerHTML = `
 
         <div class="location-name">
@@ -2065,41 +2420,34 @@ function renderLocation(){
         <div class="location-country">
 
             <span class="country-flag">
-                ${flag}
+                ${countryFlag(x.country_code)}
             </span>
 
-            ${escapeHTML(country)}
+            ${escapeHTML(
+                x.country || "Άγνωστη χώρα"
+            )}
 
         </div>
 
 
         ${
-            admin
-                ?
-                `
-                <div class="location-admin">
-                    ${escapeHTML(admin)}
-                </div>
-                `
-                :
-                ""
+            x.admin1
+            ?
+            `
+            <div class="location-admin">
+                ${escapeHTML(x.admin1)}
+            </div>
+            `
+            :
+            ""
         }
-
-
-        <div class="location-coordinates">
-
-            ${Number(x.latitude).toFixed(3)}
-            ,
-            ${Number(x.longitude).toFixed(3)}
-
-        </div>
 
     `;
 }
 
 
 /* =========================================================
-   CURRENT DISPLAY
+   CURRENT
 ========================================================= */
 
 function renderCurrent(){
@@ -2108,232 +2456,126 @@ function renderCurrent(){
         combinedWeather.current;
 
 
-    if(!c)
-        return;
+    const h =
+        combinedWeather.hourly;
+
+
+    const now =
+        new Date();
+
+
+    let closest = 0;
+    let smallest = Infinity;
+
+
+    h.time.forEach(
+        (time,index) => {
+
+            const difference =
+                Math.abs(
+                    new Date(time) - now
+                );
+
+
+            if(difference < smallest){
+
+                smallest = difference;
+                closest = index;
+
+            }
+
+        }
+    );
+
+
+    const probability =
+        Number(
+            h.precipitation_probability[
+                closest
+            ] || 0
+        );
+
+
+    const precipitation =
+        Number(
+            h.precipitation[
+                closest
+            ] || 0
+        );
+
+
+    const snowfall =
+        Number(
+            h.snowfall[
+                closest
+            ] || 0
+        );
+
+
+    const cloud =
+        Number(
+            c.cloud_cover || 0
+        );
+
+
+    const code =
+        h.weather_code[
+            closest
+        ];
 
 
     const isDay =
         Number(c.is_day) === 1;
 
 
-    /*
-       Current precipitation probability
-       comes from closest hourly time.
-    */
-
-    const now =
-        new Date();
-
-
-    let probability = 0;
-
-
-    if(
-        combinedWeather.hourly &&
-        combinedWeather.hourly.time.length
-    ){
-
-        let closest = 0;
-
-        let smallest =
-            Infinity;
-
-
-        combinedWeather.hourly.time
-            .forEach(
-                (time,index) => {
-
-                    const difference =
-                        Math.abs(
-                            new Date(time) -
-                            now
-                        );
-
-                    if(
-                        difference <
-                        smallest
-                    ){
-
-                        smallest =
-                            difference;
-
-                        closest =
-                            index;
-
-                    }
-
-                }
-            );
-
-
-        probability =
-            Number(
-                combinedWeather
-                    .hourly
-                    .precipitation_probability[
-                        closest
-                    ] || 0
-            );
-
-    }
-
-
     const icon =
-        finalWeatherIcon(
-            0,
+        weatherSVG(
+            code,
+            cloud,
+            probability,
+            precipitation,
             isDay,
-            probability
+            snowfall
         );
 
 
-    /*
-       For current weather we derive
-       non-precipitating condition from cloud cover
-       if precipitation probability <30.
-    */
-
-    let currentCode = 0;
-
-
-    if(c.cloud_cover >= 85)
-        currentCode = 3;
-
-    else if(c.cloud_cover >= 55)
-        currentCode = 2;
-
-    else if(c.cloud_cover >= 25)
-        currentCode = 1;
-
-    else
-        currentCode = 0;
-
-
-    const finalIcon =
-        finalWeatherIcon(
-            currentCode,
-            isDay,
-            probability
+    const description =
+        weatherDescription(
+            code,
+            probability,
+            precipitation
         );
-
-
-    const temp =
-        Math.round(
-            c.temperature_2m
-        );
-
-
-    const feels =
-        Math.round(
-            c.apparent_temperature
-        );
-
-
-    const humidity =
-        Math.round(
-            c.relative_humidity_2m
-        );
-
-
-    const wind =
-        Math.round(
-            c.wind_speed_10m
-        );
-
-
-    const gust =
-        Math.round(
-            c.wind_gusts_10m
-        );
-
-
-    const direction =
-        windDirection(
-            c.wind_direction_10m
-        );
-
-
-    const precipitation =
-        Number(
-            c.precipitation || 0
-        );
-
-
-    /*
-       Current precipitation emoji only
-       if probability >=30.
-    */
-
-    const precipitationHTML =
-        probability >= 30
-            ?
-            `
-            <div class="detail">
-                <div class="detail-label">
-                    💧 Υετός
-                </div>
-
-                <div class="detail-value">
-                    ${precipitation.toFixed(1)} mm
-                    (${Math.round(probability)}%)
-                </div>
-            </div>
-            `
-            :
-            `
-            <div class="detail">
-                <div class="detail-label">
-                    Υετός
-                </div>
-
-                <div class="detail-value">
-                    ${precipitation.toFixed(1)} mm
-                </div>
-            </div>
-            `;
 
 
     currentBox.innerHTML = `
 
         <div class="current">
 
-
             <div class="current-card">
 
                 <div class="current-main">
 
                     <div class="current-icon">
-                        ${finalIcon}
+                        ${icon}
                     </div>
-
 
                     <div>
 
                         <div class="current-temp">
-                            ${temp}°C
+                            ${Math.round(
+                                c.temperature_2m
+                            )}°C
                         </div>
-
 
                         <div class="current-description">
-
-                            ${
-                                probability >= 30
-                                    ? weatherDescription(
-                                        combinedWeather
-                                            .hourly
-                                            .weather_code[0]
-                                      )
-                                    : weatherDescription(
-                                        currentCode
-                                      )
-                            }
-
+                            ${description}
                         </div>
 
-
                         <div class="current-time">
-
-                            Αίσθηση ${feels}°C
-
+                            Αίσθηση
+                            ${Math.round(
+                                c.apparent_temperature
+                            )}°C
                         </div>
 
                     </div>
@@ -2347,7 +2589,6 @@ function renderCurrent(){
 
                 <div class="details">
 
-
                     <div class="detail">
 
                         <div class="detail-label">
@@ -2355,7 +2596,9 @@ function renderCurrent(){
                         </div>
 
                         <div class="detail-value">
-                            ${humidity}%
+                            ${Math.round(
+                                c.relative_humidity_2m
+                            )}%
                         </div>
 
                     </div>
@@ -2368,8 +2611,9 @@ function renderCurrent(){
                         </div>
 
                         <div class="detail-value">
-                            ${wind} km/h
-                            ${direction}
+                            ${Math.round(
+                                c.wind_speed_10m
+                            )} km/h
                         </div>
 
                     </div>
@@ -2382,19 +2626,34 @@ function renderCurrent(){
                         </div>
 
                         <div class="detail-value">
-                            ${gust} km/h
+                            ${Math.round(
+                                c.wind_gusts_10m
+                            )} km/h
                         </div>
 
                     </div>
 
 
-                    ${precipitationHTML}
+                    <div class="detail">
 
+                        <div class="detail-label">
+                            Υετός
+                        </div>
+
+                        <div class="detail-value">
+                            ${precipitation.toFixed(1)} mm
+                            ${
+                                probability >= 30
+                                ? ` • ${Math.round(probability)}%`
+                                : ""
+                            }
+                        </div>
+
+                    </div>
 
                 </div>
 
             </div>
-
 
         </div>
 
@@ -2403,7 +2662,7 @@ function renderCurrent(){
 
 
 /* =========================================================
-   DAILY DISPLAY
+   15 DAYS
 ========================================================= */
 
 function renderDays(){
@@ -2415,13 +2674,10 @@ function renderDays(){
         combinedWeather.daily;
 
 
-    if(!d)
-        return;
-
-
     for(
         let i=0;
-        i<Math.min(15,d.time.length);
+        i<15 &&
+        i<d.time.length;
         i++
     ){
 
@@ -2431,59 +2687,50 @@ function renderDays(){
 
         const probability =
             Number(
-                d.precipitation_probability_max[i] ||
-                0
+                d.precipitation_probability_max[i]
+                || 0
             );
 
 
         const precipitation =
             Number(
-                d.precipitation_sum[i] ||
-                0
+                d.precipitation_sum[i]
+                || 0
             );
 
 
-        /*
-           Estimate day/night based on
-           daily weather code + sunrise/sunset.
-        */
+        const snowfall =
+            Number(
+                d.snowfall_sum[i]
+                || 0
+            );
+
+
+        const cloud =
+            Number(
+                d.cloud_cover[i]
+                || 0
+            );
+
 
         const code =
             d.weather_code[i];
 
 
-        let icon;
+        /*
+           Daily icon is DAY icon because the
+           card represents the whole daytime.
+        */
 
-
-        if(probability >= 30){
-
-            icon =
-                weatherIcon(
-                    code,
-                    true
-                );
-
-        }
-        else{
-
-            /*
-               No precipitation emoji under 30%.
-               Use cloud/clear category only.
-            */
-
-            if(code === 0)
-                icon = "☀️";
-
-            else if(code === 1)
-                icon = "🌤️";
-
-            else if(code === 2)
-                icon = "⛅";
-
-            else
-                icon = "☁️";
-
-        }
+        const icon =
+            weatherSVG(
+                code,
+                cloud,
+                probability,
+                precipitation,
+                true,
+                snowfall
+            );
 
 
         const card =
@@ -2509,34 +2756,35 @@ function renderDays(){
 
 
         /*
-           Precipitation emoji is shown ONLY
-           at >=30%.
+           NO precipitation emoji below 30%.
         */
 
         const precipHTML =
             probability >= 30
-                ?
-                `
-                <div class="precip">
+            ?
+            `
+            <div class="precip">
 
-                    <div class="precip-line">
-                        💧 ${precipitation.toFixed(1)} mm
-                    </div>
-
-                    <div class="precip-prob">
-                        ${Math.round(probability)}%
-                    </div>
-
+                <div class="precip-line">
+                    💧 ${precipitation.toFixed(1)} mm
                 </div>
-                `
-                :
-                `
-                <div class="precip">
-                    <div class="precip-prob">
-                        ${Math.round(probability)}%
-                    </div>
+
+                <div class="precip-prob">
+                    ${Math.round(probability)}%
                 </div>
-                `;
+
+            </div>
+            `
+            :
+            `
+            <div class="precip">
+
+                <div class="precip-prob">
+                    ${Math.round(probability)}%
+                </div>
+
+            </div>
+            `;
 
 
         card.innerHTML = `
@@ -2545,21 +2793,23 @@ function renderDays(){
                 ${day}
             </div>
 
-
             <div class="day-date">
                 ${formatDate(date)}
             </div>
-
 
             <div class="day-icon">
                 ${icon}
             </div>
 
-
             <div class="day-desc">
-                ${weatherDescription(code)}
-            </div>
 
+                ${weatherDescription(
+                    code,
+                    probability,
+                    precipitation
+                )}
+
+            </div>
 
             <div class="temps">
 
@@ -2569,7 +2819,6 @@ function renderDays(){
                     )}°C
                 </div>
 
-
                 <div class="temp-min">
                     ${Math.round(
                         d.temperature_2m_min[i]
@@ -2577,7 +2826,6 @@ function renderDays(){
                 </div>
 
             </div>
-
 
             ${precipHTML}
 
@@ -2634,7 +2882,7 @@ function renderDays(){
 
 
 /* =========================================================
-   HOURLY DISPLAY
+   HOURLY
 ========================================================= */
 
 function renderHourly(dayIndex){
@@ -2669,15 +2917,41 @@ function renderHourly(dayIndex){
     ){
 
         if(
-            !h.time[i].startsWith(
-                date
-            )
+            !h.time[i].startsWith(date)
         )
             continue;
 
 
+        const probability =
+            Number(
+                h.precipitation_probability[i]
+                || 0
+            );
+
+
+        const precipitation =
+            Number(
+                h.precipitation[i]
+                || 0
+            );
+
+
+        const snowfall =
+            Number(
+                h.snowfall[i]
+                || 0
+            );
+
+
         const code =
             h.weather_code[i];
+
+
+        const cloud =
+            Number(
+                h.cloud_cover[i]
+                || 0
+            );
 
 
         const isDay =
@@ -2686,56 +2960,15 @@ function renderHourly(dayIndex){
             ) === 1;
 
 
-        const probability =
-            Number(
-                h.precipitation_probability[i] ||
-                0
-            );
-
-
-        const precipitation =
-            Number(
-                h.precipitation[i] ||
-                0
-            );
-
-
-        const temp =
-            Math.round(
-                h.temperature_2m[i]
-            );
-
-
-        const wind =
-            Math.round(
-                h.wind_speed_10m[i]
-            );
-
-
-        const gust =
-            Math.round(
-                h.wind_gusts_10m[i]
-            );
-
-
-        const direction =
-            windDirection(
-                h.wind_direction_10m[i]
-            );
-
-
         const icon =
-            finalWeatherIcon(
+            weatherSVG(
                 code,
+                cloud,
+                probability,
+                precipitation,
                 isDay,
-                probability
+                snowfall
             );
-
-
-        const time =
-            h.time[i]
-                .split("T")[1]
-                .substring(0,5);
 
 
         const row =
@@ -2748,40 +2981,40 @@ function renderHourly(dayIndex){
             "hour";
 
 
-        /*
-           Precipitation emoji ONLY >=30%.
-        */
-
-        const rainHTML =
+        const precipHTML =
             probability >= 30
-                ?
-                `
-                <div class="hour-rain">
+            ?
+            `
+            <div class="hour-rain">
 
-                    💧 ${precipitation.toFixed(1)} mm
+                💧 ${precipitation.toFixed(1)} mm
 
-                    <br>
+                <br>
 
-                    <span style="opacity:.65;">
-                        ${Math.round(probability)}%
-                    </span>
+                <span style="opacity:.65;">
+                    ${Math.round(probability)}%
+                </span>
 
-                </div>
-                `
-                :
-                `
-                <div class="hour-rain">
+            </div>
+            `
+            :
+            `
+            <div class="hour-rain">
 
-                    ${temp}°C
+                ${Math.round(probability)}%
 
-                </div>
-                `;
+            </div>
+            `;
 
 
         row.innerHTML = `
 
             <div class="hour-time">
-                ${time}
+
+                ${h.time[i]
+                    .split("T")[1]
+                    .substring(0,5)}
+
             </div>
 
 
@@ -2791,36 +3024,44 @@ function renderHourly(dayIndex){
 
 
             <div class="hour-temp">
-                ${temp}°C
+
+                ${Math.round(
+                    h.temperature_2m[i]
+                )}°C
+
             </div>
 
 
-            ${rainHTML}
+            ${precipHTML}
 
 
             <div class="hour-wind">
 
-                💨 ${wind} km/h
+                💨 ${Math.round(
+                    h.wind_speed_10m[i]
+                )} km/h
 
                 <br>
 
-                Ριπές ${gust}
+                Ριπές ${Math.round(
+                    h.wind_gusts_10m[i]
+                )}
 
             </div>
 
 
             <div class="hour-dir">
 
-                ${direction}
+                ${windDirection(
+                    h.wind_direction_10m[i]
+                )}
 
             </div>
 
         `;
 
 
-        hourlyBox.appendChild(
-            row
-        );
+        hourlyBox.appendChild(row);
 
     }
 
@@ -2831,7 +3072,35 @@ function renderHourly(dayIndex){
 
 
 /* =========================================================
-   REFRESH WEATHER
+   WIND
+========================================================= */
+
+function windDirection(degrees){
+
+    if(
+        degrees === null ||
+        degrees === undefined ||
+        isNaN(degrees)
+    )
+        return "—";
+
+
+    const dirs = [
+        "Β","ΒΑ","Α","ΝΑ",
+        "Ν","ΝΔ","Δ","ΒΔ"
+    ];
+
+
+    return dirs[
+        Math.round(
+            Number(degrees)/45
+        ) % 8
+    ];
+}
+
+
+/* =========================================================
+   REFRESH
 ========================================================= */
 
 async function refreshWeather(){
@@ -2843,14 +3112,13 @@ async function refreshWeather(){
     try{
 
         modelStatus.textContent =
-            "Μοντέλα: έλεγχος για νέα δεδομένα...";
+            "Μοντέλα: έλεγχος νέων δεδομένων...";
 
 
-        await loadAllModels();
+        await loadModels();
 
 
         renderCurrent();
-
         renderDays();
 
 
@@ -2865,71 +3133,53 @@ async function refreshWeather(){
                     }
                 );
 
-
     }
     catch(error){
+
+        console.error(error);
 
         modelStatus.textContent =
             "Προσωρινό πρόβλημα ενημέρωσης.";
 
-        console.error(error);
-
     }
 
+
+    scheduleRefresh();
 }
 
 
 /* =========================================================
-   EXACT 5-MINUTE REFRESH
-   :00 :05 :10 :15 :20...
+   EXACT 5 MINUTES
 ========================================================= */
 
 function scheduleRefresh(){
-
-    if(refreshTimer)
-        clearTimeout(
-            refreshTimer
-        );
-
 
     const now =
         new Date();
 
 
-    const millisecondsUntilNext5 =
-        (
-            5 * 60 * 1000
-        ) -
-        (
-            (
-                now.getMinutes() % 5
-            ) *
-            60 *
-            1000
-            +
-            now.getSeconds() * 1000
-            +
-            now.getMilliseconds()
-        );
+    const remainder =
+        now.getMinutes() % 5;
 
 
-    refreshTimer =
-        setTimeout(
-            async () => {
+    let minutes =
+        5 - remainder;
 
-                await refreshWeather();
 
-                scheduleRefresh();
+    let delay =
+        minutes * 60000 -
+        now.getSeconds() * 1000 -
+        now.getMilliseconds();
 
-            },
 
-            Math.max(
-                1000,
-                millisecondsUntilNext5
-            )
+    if(delay < 1000)
+        delay = 1000;
 
-        );
 
+    setTimeout(
+        refreshWeather,
+        delay
+    );
 }
 
 
@@ -2948,12 +3198,11 @@ async function performSearch(){
         statusBox.innerHTML =
             `
             <span class="error">
-                Γράψε μια περιοχή για αναζήτηση.
+                Γράψε μια περιοχή.
             </span>
             `;
 
         return;
-
     }
 
 
@@ -2971,14 +3220,10 @@ async function performSearch(){
 
     try{
 
-        const result =
+        locationData =
             await searchLocation(
                 query
             );
-
-
-        locationData =
-            result;
 
 
         renderLocation();
@@ -2987,16 +3232,15 @@ async function performSearch(){
         statusBox.innerHTML =
             `
             <span class="loading">
-                🌦️ Λήψη ECMWF + GFS + ICON...
+                🌦️ Συνδυασμός ECMWF + GFS + ICON...
             </span>
             `;
 
 
-        await loadAllModels();
+        await loadModels();
 
 
         renderCurrent();
-
         renderDays();
 
 
@@ -3015,28 +3259,13 @@ async function performSearch(){
                     }
                 );
 
-
     }
     catch(error){
 
-        console.error(error);
-
-
-        locationCard.innerHTML =
-            "";
-
-
-        currentBox.innerHTML =
-            "";
-
-
-        daysBox.innerHTML =
-            "";
-
-
-        hourlyBox.innerHTML =
-            "";
-
+        locationCard.innerHTML = "";
+        currentBox.innerHTML = "";
+        daysBox.innerHTML = "";
+        hourlyBox.innerHTML = "";
 
         hourlySection.style.display =
             "none";
@@ -3067,7 +3296,7 @@ async function performSearch(){
 
 
 /* =========================================================
-   EVENTS
+   START
 ========================================================= */
 
 searchBtn.addEventListener(
@@ -3078,23 +3307,14 @@ searchBtn.addEventListener(
 
 cityInput.addEventListener(
     "keydown",
-    event => {
+    e => {
 
-        if(
-            event.key === "Enter"
-        ){
-
+        if(e.key === "Enter")
             performSearch();
-
-        }
 
     }
 );
 
-
-/* =========================================================
-   START
-========================================================= */
 
 (async function(){
 
