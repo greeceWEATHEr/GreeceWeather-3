@@ -13,24 +13,17 @@
 
 <style>
 
-/* =====================================
-   ΒΑΣΙΚΑ
-===================================== */
-
 *{
     box-sizing:border-box;
 }
 
 body{
     margin:0;
-
     font-family:
         Arial,
         Helvetica,
         sans-serif;
-
     color:#fff;
-
     background:
         linear-gradient(
             180deg,
@@ -40,11 +33,8 @@ body{
 }
 
 .container{
-
     width:min(100%,960px);
-
     margin:auto;
-
     padding:16px;
 }
 
@@ -54,30 +44,21 @@ body{
 ===================================== */
 
 .header{
-
     background:
         rgba(3,20,38,.72);
-
     padding:28px 20px;
-
     text-align:center;
-
     margin-bottom:25px;
 }
 
 .header h1{
-
     margin:0;
-
     font-size:30px;
 }
 
 .header p{
-
     margin:18px 0 0;
-
     color:#d6dce4;
-
     font-size:16px;
 }
 
@@ -87,41 +68,26 @@ body{
 ===================================== */
 
 .search{
-
     display:flex;
-
     gap:10px;
-
     margin-bottom:25px;
 }
 
 .search input{
-
     flex:1;
-
     border:0;
-
     outline:0;
-
     border-radius:15px;
-
     padding:17px;
-
     font-size:16px;
 }
 
 .search button{
-
     border:0;
-
     border-radius:15px;
-
     padding:0 22px;
-
     font-weight:bold;
-
     font-size:15px;
-
     cursor:pointer;
 }
 
@@ -131,73 +97,51 @@ body{
 ===================================== */
 
 .current{
-
     background:
         rgba(57,85,117,.72);
-
     border-radius:20px;
-
     padding:25px;
-
     text-align:center;
-
     margin-bottom:25px;
 }
 
 .current h2{
-
     margin:0 0 20px;
-
     font-size:26px;
 }
 
 .temperature{
-
     font-size:60px;
-
     font-weight:300;
-
     margin-bottom:15px;
 }
 
 .condition{
-
     font-size:17px;
-
     margin-bottom:24px;
 }
 
 .current-grid{
-
     display:grid;
-
     grid-template-columns:
         repeat(3,1fr);
-
     gap:12px;
 }
 
 .current-box{
-
     background:
         rgba(104,133,165,.48);
-
     border-radius:14px;
-
     padding:16px 8px;
 }
 
 .current-box span{
-
     display:block;
-
     color:#e0e5ea;
-
     margin-bottom:5px;
 }
 
 .current-box strong{
-
     font-size:15px;
 }
 
@@ -207,23 +151,15 @@ body{
 ===================================== */
 
 .section-title{
-
     display:flex;
-
     align-items:center;
-
     gap:8px;
-
     font-size:24px;
-
     font-weight:bold;
-
     border-bottom:
         2px solid
         rgba(255,255,255,.55);
-
     padding-bottom:12px;
-
     margin-bottom:15px;
 }
 
@@ -233,104 +169,72 @@ body{
 ===================================== */
 
 .forecast{
-
     display:grid;
-
     grid-template-columns:
         repeat(6,1fr);
-
     gap:12px;
 }
 
 .day{
-
     background:
         rgba(53,84,119,.78);
-
     border-radius:17px;
-
     padding:18px 8px;
-
     text-align:center;
-
     cursor:pointer;
-
     transition:.18s;
-
     border:
         1px solid
         transparent;
 }
 
 .day:hover{
-
     transform:
         translateY(-3px);
-
     background:
         rgba(72,105,143,.95);
-
     border-color:
         rgba(255,255,255,.25);
 }
 
 .day:active{
-
     transform:
         scale(.97);
 }
 
 .day-name{
-
     font-weight:bold;
-
     font-size:15px;
 }
 
 .date{
-
     margin-top:9px;
-
     color:#e1e5e9;
-
     font-size:14px;
 }
 
 .icon{
-
     font-size:35px;
-
     margin:18px 0 12px;
-
     height:40px;
-
     display:flex;
-
     align-items:center;
-
     justify-content:center;
 }
 
 .max{
-
     font-size:17px;
-
     font-weight:bold;
 }
 
 .min{
-
     margin-top:6px;
-
     color:#d0d7df;
 }
 
 .rain{
-
     margin-top:10px;
-
     font-size:12px;
-
     color:#c9e9ff;
 }
 
@@ -340,36 +244,24 @@ body{
 ===================================== */
 
 .night-moon{
-
     display:inline-block;
-
     filter:
         grayscale(1)
         brightness(.78)
         sepia(.10)
         hue-rotate(175deg);
-
     opacity:.90;
 }
 
-
 .night-partly-cloudy{
-
     width:38px;
-
     height:38px;
-
     display:inline-block;
-
     vertical-align:middle;
-
     background:
         url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='25' cy='23' r='15' fill='%2395a9bd'/%3E%3Cpath d='M15 42c0-6.5 5.3-11.8 11.8-11.8 4.3 0 8.1 2.3 10.1 5.8 1.1-.4 2.3-.6 3.5-.6 6.3 0 11.4 5.1 11.4 11.4H15.8C15.3 45.6 15 43.8 15 42z' fill='%23c7d0d9'/%3E%3Cpath d='M20 38c1.5-4.6 5.8-7.9 10.9-7.9 4.1 0 7.7 2.1 9.8 5.3' fill='none' stroke='%23e2e7eb' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E")
-
         center/
-
         contain
-
         no-repeat;
 }
 
@@ -379,59 +271,38 @@ body{
 ===================================== */
 
 .hourly-section{
-
     display:none;
-
     margin-top:28px;
-
     background:
         rgba(5,27,50,.72);
-
     border-radius:20px;
-
     padding:20px;
 }
 
 .hourly-header{
-
     display:flex;
-
     align-items:center;
-
     justify-content:space-between;
-
     gap:10px;
-
     border-bottom:
         1px solid
         rgba(255,255,255,.3);
-
     padding-bottom:15px;
-
     margin-bottom:15px;
 }
 
 .hourly-header h3{
-
     margin:0;
-
     font-size:21px;
-
 }
 
 .close-hourly{
-
     background:
         rgba(255,255,255,.15);
-
     border:0;
-
     color:white;
-
     border-radius:10px;
-
     padding:8px 13px;
-
     cursor:pointer;
 }
 
@@ -441,16 +312,12 @@ body{
 ===================================== */
 
 .hourly{
-
     display:grid;
-
     gap:8px;
 }
 
 .hour{
-
     display:grid;
-
     grid-template-columns:
         70px
         50px
@@ -458,45 +325,30 @@ body{
         1fr
         1fr
         1fr;
-
     align-items:center;
-
     background:
         rgba(65,96,130,.62);
-
     border-radius:12px;
-
     padding:12px 10px;
-
     gap:8px;
 }
 
 .hour-time{
-
     font-weight:bold;
 }
 
 .hour-icon{
-
     font-size:25px;
-
     text-align:center;
-
     height:32px;
-
     display:flex;
-
     align-items:center;
-
     justify-content:center;
 }
 
 .hour-data{
-
     font-size:13px;
-
     color:#e4e8ed;
-
     line-height:1.5;
 }
 
@@ -506,13 +358,9 @@ body{
 ===================================== */
 
 .model-info{
-
     margin-top:18px;
-
     color:#bdc9d6;
-
     font-size:12px;
-
     line-height:1.5;
 }
 
@@ -522,11 +370,8 @@ body{
 ===================================== */
 
 .loading{
-
     text-align:center;
-
     padding:30px;
-
     font-size:16px;
 }
 
@@ -538,19 +383,16 @@ body{
 @media(max-width:750px){
 
     .forecast{
-
         grid-template-columns:
             repeat(3,1fr);
     }
 
     .current-grid{
-
         grid-template-columns:
             1fr;
     }
 
     .hour{
-
         grid-template-columns:
             55px
             40px
@@ -560,7 +402,6 @@ body{
 
     .hour-data:nth-child(5),
     .hour-data:nth-child(6){
-
         display:none;
     }
 }
@@ -569,35 +410,28 @@ body{
 @media(max-width:430px){
 
     .container{
-
         padding:12px;
     }
 
     .header h1{
-
         font-size:26px;
     }
 
     .temperature{
-
         font-size:52px;
     }
 
     .forecast{
-
         grid-template-columns:
             repeat(3,1fr);
-
         gap:9px;
     }
 
     .day{
-
         padding:15px 5px;
     }
 
     .icon{
-
         font-size:30px;
     }
 
@@ -753,131 +587,162 @@ let locationData = null;
 
 
 /* =====================================
+   ΣΗΜΑΙΑ ΧΩΡΑΣ
+===================================== */
+
+function countryFlag(countryCode){
+
+    if(!countryCode){
+
+        return "🌍";
+
+    }
+
+
+    const code =
+        countryCode
+        .toUpperCase()
+        .trim();
+
+
+    if(code.length !== 2){
+
+        return "🌍";
+
+    }
+
+
+    return String
+        .fromCodePoint(
+            ...[...code].map(
+                char =>
+                    127397 +
+                    char.charCodeAt(0)
+            )
+        );
+
+}
+
+
+
+/* =====================================
    WEATHER ICON
+
+   30% ΚΑΙ ΠΑΝΩ:
+   ΥΠΟΧΡΕΩΤΙΚΑ emoji υετού.
+
+   29% ΚΑΙ ΚΑΤΩ:
+   ΠΟΤΕ emoji υετού.
 ===================================== */
 
 function weatherIcon(
     code,
     isDay = true,
-    precipitationProbability = 0
+    precipitationProbability = 0,
+    snowfall = 0
 ){
 
-    /*
-       ΚΑΝΟΝΑΣ ΥΕΤΟΥ:
-
-       >= 30%:
-       Επιτρέπονται/εμφανίζονται
-       emoji βροχής, χιονιού,
-       μπόρας ή καταιγίδας.
-
-       <= 29%:
-       ΚΑΝΕΝΑ emoji υετού.
-    */
-
-    const precip =
+    const rain =
         Number(
             precipitationProbability || 0
         );
 
-
-    /* ---------------------------------
-       ΚΩΔΙΚΟΙ ΥΕΤΟΥ
-    --------------------------------- */
-
-    const rainCodes = [
-        51,53,55,56,57,
-        61,63,65,66,67,
-        80,81,82
-    ];
-
-    const snowCodes = [
-        71,73,75,77,
-        85,86
-    ];
-
-    const stormCodes = [
-        95,96,99
-    ];
+    const snow =
+        Number(
+            snowfall || 0
+        );
 
 
-    const isRain =
-        rainCodes.includes(code);
+    /* =====================================
+       0–29%
 
-    const isSnow =
-        snowCodes.includes(code);
+       ΚΑΝΕΝΑ:
+       🌧️ 🌨️ 🌦️ ⛈️
+    ===================================== */
 
-    const isStorm =
-        stormCodes.includes(code);
+    if(rain < 30){
+
+        if(code === 0){
+
+            if(isDay){
+
+                return "☀️";
+
+            }
+
+            return '<span class="night-moon">🌙</span>';
+
+        }
 
 
-    /*
-       ΑΝ ΕΙΝΑΙ ΥΕΤΟΣ ΑΛΛΑ
-       ΕΙΝΑΙ 29% Ή ΚΑΤΩ,
-       ΔΕΝ ΕΠΙΣΤΡΕΦΟΥΜΕ
-       ΚΑΝΕΝΑ ΕΙΚΟΝΙΔΙΟ ΥΕΤΟΥ.
-    */
+        if(code === 1){
 
-    if(
-        precip < 30 &&
-        (
-            isRain ||
-            isSnow ||
-            isStorm
-        )
-    ){
+            if(isDay){
 
-        if(isDay){
+                return "🌤️";
+
+            }
+
+            return '<span class="night-moon">🌙</span>';
+
+        }
+
+
+        if(code === 2){
+
+            if(isDay){
+
+                return "🌤️";
+
+            }
+
+            return `
+                <span
+                    class="night-partly-cloudy"
+                    aria-label="Λίγες νεφώσεις τη νύχτα">
+                </span>
+            `;
+
+        }
+
+
+        if(code === 3){
 
             return "☁️";
 
         }
 
-        return '<span class="night-moon">🌙</span>';
 
-    }
+        if(
+            [45,48].includes(code)
+        ){
 
-
-    /* -----------------------------
-       ΚΑΘΑΡΟΣ ΟΥΡΑΝΟΣ
-    ----------------------------- */
-
-    if(code === 0){
-
-        if(isDay){
-
-            return "☀️";
+            return "🌫️";
 
         }
 
-        return '<span class="night-moon">🌙</span>';
 
-    }
+        /*
+           Οποιοσδήποτε κωδικός
+           υετού κάτω από 30%
+           γίνεται απλό σύννεφο.
+        */
 
+        if(
+            [
+                51,53,55,56,57,
+                61,63,65,66,67,
+                71,73,75,77,
+                80,81,82,
+                85,86,
+                95,96,99
+            ].includes(code)
+        ){
 
-
-    /* -----------------------------
-       ΚΥΡΙΩΣ ΑΙΘΡΙΟΣ
-    ----------------------------- */
-
-    if(code === 1){
-
-        if(isDay){
-
-            return "🌤️";
+            return "☁️";
 
         }
 
-        return '<span class="night-moon">🌙</span>';
-
-    }
-
-
-
-    /* -----------------------------
-       ΛΙΓΕΣ ΝΕΦΩΣΕΙΣ
-    ----------------------------- */
-
-    if(code === 2){
 
         if(isDay){
 
@@ -885,116 +750,21 @@ function weatherIcon(
 
         }
 
-        return `
-            <span
-                class="night-partly-cloudy"
-                aria-label="Λίγες νεφώσεις τη νύχτα">
-            </span>
-        `;
+        return '<span class="night-moon">🌙</span>';
 
     }
 
 
 
-    /* -----------------------------
-       ΣΥΝΝΕΦΙΑ
-    ----------------------------- */
+    /* =====================================
+       30% ΚΑΙ ΠΑΝΩ
 
-    if(code === 3){
+       ΥΠΟΧΡΕΩΤΙΚΑ emoji ΥΕΤΟΥ
+    ===================================== */
 
-        return "☁️";
-
-    }
-
-
-
-    /* -----------------------------
-       ΟΜΙΧΛΗ
-    ----------------------------- */
-
-    if(
-        [45,48].includes(code)
-    ){
-
-        return "🌫️";
-
-    }
-
-
-
-    /* -----------------------------
-       ΨΙΛΟΒΡΟΧΟ
-    ----------------------------- */
-
-    if(
-        [51,53,55,56,57].includes(code)
-    ){
-
-        return "🌧️";
-
-    }
-
-
-
-    /* -----------------------------
-       ΒΡΟΧΗ / ΧΙΟΝΟΝΕΡΟ
-    ----------------------------- */
-
-    if(
-        [61,63,65,66,67].includes(code)
-    ){
-
-        return "🌧️";
-
-    }
-
-
-
-    /* -----------------------------
-       ΧΙΟΝΙ
-    ----------------------------- */
-
-    if(
-        [71,73,75,77].includes(code)
-    ){
-
-        return "🌨️";
-
-    }
-
-
-
-    /* -----------------------------
-       ΜΠΟΡΕΣ
-    ----------------------------- */
-
-    if(
-        [80,81,82].includes(code)
-    ){
-
-        return "🌦️";
-
-    }
-
-
-
-    /* -----------------------------
-       ΧΙΟΝΟΜΠΟΡΕΣ
-    ----------------------------- */
-
-    if(
-        [85,86].includes(code)
-    ){
-
-        return "🌨️";
-
-    }
-
-
-
-    /* -----------------------------
+    /*
        ΚΑΤΑΙΓΙΔΑ
-    ----------------------------- */
+    */
 
     if(
         [95,96,99].includes(code)
@@ -1005,18 +775,49 @@ function weatherIcon(
     }
 
 
+    /*
+       ΧΙΟΝΙ
+    */
 
-    /* -----------------------------
-       FALLBACK
-    ----------------------------- */
+    if(
+        snow > 0 ||
+        [
+            71,73,75,77,
+            85,86
+        ].includes(code)
+    ){
 
-    if(isDay){
-
-        return "🌤️";
+        return "🌨️";
 
     }
 
-    return '<span class="night-moon">🌙</span>';
+
+    /*
+       ΒΡΟΧΗ / ΜΠΟΡΕΣ
+    */
+
+    if(
+        [
+            51,53,55,56,57,
+            61,63,65,66,67,
+            80,81,82
+        ].includes(code)
+    ){
+
+        return "🌧️";
+
+    }
+
+
+    /*
+       30%+ αλλά ο κωδικός
+       δεν είναι κωδικός υετού.
+
+       ΠΑΡΟΛΑ ΑΥΤΑ:
+       ΥΠΟΧΡΕΩΤΙΚΑ emoji υετού.
+    */
+
+    return "🌧️";
 
 }
 
@@ -1263,7 +1064,10 @@ async function searchCity(){
                 place.longitude,
 
             country:
-                place.country
+                place.country,
+
+            countryCode:
+                place.country_code
 
         };
 
@@ -1510,7 +1314,6 @@ async function loadWeather(){
     };
 
 
-
     renderCurrent();
 
     renderForecast();
@@ -1568,14 +1371,33 @@ function renderCurrent(){
         <div class="current">
 
             <h2>
+
                 ${locationData.name}
+
+                <div style="
+                    font-size:16px;
+                    font-weight:normal;
+                    color:#dce5ee;
+                    margin-top:7px;
+                ">
+
+                    ${countryFlag(
+                        locationData.countryCode
+                    )}
+
+                    ${locationData.country}
+
+                </div>
+
             </h2>
+
 
             <div class="temperature">
 
                 ${Math.round(temp)}°C
 
             </div>
+
 
             <div class="condition">
 
@@ -1678,8 +1500,10 @@ function renderForecast(){
 
 
         const rain =
-            d.precipitation_probability_max[i]
-            || 0;
+            Number(
+                d.precipitation_probability_max[i]
+                || 0
+            );
 
 
         const snow =
@@ -1694,13 +1518,9 @@ function renderForecast(){
 
 
         /*
-           ΥΕΤΟΣ:
-
-           30% και πάνω:
-           εμφανίζεται emoji υετού.
-
-           29% και κάτω:
-           κανένα emoji υετού.
+           ΚΑΤΩ ΑΠΟ 30%
+           δεν εμφανίζουμε ποσότητα
+           υετού.
         */
 
         if(rain >= 30){
@@ -1708,11 +1528,13 @@ function renderForecast(){
             if(snow > 0){
 
                 precipitationInfo =
+
                     `❄️ ${snow.toFixed(1)} cm`;
 
             }else{
 
                 precipitationInfo =
+
                     `💧 ${Math.round(rain)}%`;
 
             }
@@ -1720,7 +1542,8 @@ function renderForecast(){
         }else{
 
             precipitationInfo =
-                `${Math.round(rain)}%`;
+
+                `💧 ${Math.round(rain)}%`;
 
         }
 
@@ -1752,7 +1575,8 @@ function renderForecast(){
                 ${weatherIcon(
                     d.weather_code[i],
                     true,
-                    rain
+                    rain,
+                    snow
                 )}
 
             </div>
@@ -1888,7 +1712,7 @@ function showHourly(dayIndex){
             Number(
                 d.precipitation[i]
                 || 0
-            ).toFixed(1);
+            );
 
 
         const snowfall =
@@ -1920,74 +1744,82 @@ function showHourly(dayIndex){
             d.is_day[i] === 1;
 
 
-        /*
-           ΤΟ ΙΔΙΟ ΑΚΡΙΒΩΣ ΟΡΙΟ:
 
-           >= 30% → emoji υετού
-           <= 29% → κανένα emoji υετού
-        */
+        /* =====================================
+           ΩΡΙΑΙΟ ICON
+
+           30%+ → ΠΑΝΤΑ emoji υετού
+           29%- → ΠΟΤΕ emoji υετού
+        ===================================== */
 
         const icon =
             weatherIcon(
                 d.weather_code[i],
                 isDay,
-                rain
+                rain,
+                snowfall
             );
 
+
+
+        /* =====================================
+           ΩΡΙΑΙΑ ΠΟΣΟΤΗΤΑ ΥΕΤΟΥ
+
+           ΚΑΤΩ ΑΠΟ 30%:
+           δεν παρουσιάζουμε ψεύτικη/αμελητέα
+           ποσότητα ως υετό.
+
+           30%+:
+           εμφανίζουμε την ποσότητα.
+        ===================================== */
 
         let precipitationHTML = "";
 
 
-/* =====================================
-   ΥΕΤΟΣ ΩΡΙΑΙΑΣ ΠΡΟΓΝΩΣΗΣ
+        if(rain >= 30){
 
-   0–29%  → ΚΑΝΕΝΑΣ ΥΕΤΟΣ
-   30%+   → Εμφάνιση πραγματικού υετού
-===================================== */
+            if(snowfall > 0){
 
-if(rain >= 30){
+                precipitationHTML = `
 
-    if(snowfall > 0){
+                    ❄️ Χιόνι:
+                    <b>
+                        ${snowfall.toFixed(1)} cm
+                    </b>
 
-        precipitationHTML = `
+                    <br>
 
-            ❄️ Χιόνι:
-            <b>
-                ${snowfall.toFixed(1)} cm
-            </b>
+                    💧 ${rain}%
 
-            <br>
+                `;
 
-            💧 ${rain}%
+            }else{
 
-        `;
+                precipitationHTML = `
 
-    }else{
+                    🌧️ Βροχή:
+                    <b>
+                        ${precipitation.toFixed(1)} mm
+                    </b>
 
-        precipitationHTML = `
+                    <br>
 
-            🌧️ Βροχή:
-            <b>
-                ${precipitation} mm
-            </b>
+                    💧 ${rain}%
 
-            <br>
+                `;
 
-            💧 ${rain}%
+            }
 
-        `;
+        }else{
 
-    }
+            precipitationHTML = `
 
-}else{
+                💧 ${rain}%
 
-    precipitationHTML = `
+            `;
 
-        💧 ${rain}%
+        }
 
-    `;
-
-}
 
 
         html += `
